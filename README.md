@@ -32,6 +32,7 @@ ejecutar
 Hasta ahora tenemos el ambiente instalado. Para usarlo se debe ir a la ruta del 
 proyecto y montar el ambiente.
 
+    $ cd ruta/del/proyecto/
     $ vagrant up
 
 En cosa de minutos tendrás corriendo una maquina virtual estándar que otros 
