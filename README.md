@@ -60,3 +60,12 @@ vagrant@vagrant-ubuntu-trusty:~$
 La gracia está en que la carpeta en donde iniciaste la MV, en nuestro caso la 
 carpeta del proyecto en Rails, está sincronizada con tu PC y puedes verla en la 
 carpeta `/vagrant`.
+
+
+```bash
+vagrant@vagrant-ubuntu-trusty:~$ cd /vagrant/
+vagrant@vagrant-ubuntu-trusty:/vagrant$ ls
+Gemfile       README.md  Vagrantfile  bin     config.ru  lib  public  tmp
+Gemfile.lock  Rakefile   app          config  db         log  test    vendor
+vagrant@vagrant-ubuntu-trusty:/vagrant$
+```
