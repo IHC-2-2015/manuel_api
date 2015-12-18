@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :cursos
   resources :curso_alumnos
   resources :alumnos
+  get '/buscar_por_correo', to:'usuarios#buscar_por_correo'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

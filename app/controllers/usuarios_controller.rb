@@ -60,6 +60,16 @@ class UsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def buscar_por_correo
+      @usuario= Usuario.where("correo = ?", params[:correo])
+
+      respond_to do |format|
+        format.html { render json: @usuario }
+        format.json{ render json: @usuario}
+      end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
