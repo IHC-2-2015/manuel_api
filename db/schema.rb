@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218213203) do
+ActiveRecord::Schema.define(version: 20151219181005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "alumnos", force: :cascade do |t|
+    t.string   "rut"
     t.string   "nombre"
     t.string   "apellido_paterno"
     t.string   "apellido_materno"
+    t.string   "correo"
     t.integer  "usuario_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -49,6 +51,13 @@ ActiveRecord::Schema.define(version: 20151218213203) do
     t.integer  "tipo_encuesta_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "encuesta_pregunta", force: :cascade do |t|
+    t.integer  "encuesta_id"
+    t.integer  "pregunta_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "evaluaciones", force: :cascade do |t|
@@ -83,9 +92,12 @@ ActiveRecord::Schema.define(version: 20151218213203) do
   end
 
   create_table "profesores", force: :cascade do |t|
+    t.string   "rut"
     t.string   "nombre"
     t.string   "apellido_paterno"
     t.string   "apellido_materno"
+    t.string   "correo"
+    t.integer  "rol"
     t.text     "descripcion"
     t.integer  "usuario_id"
     t.datetime "created_at",       null: false
@@ -118,10 +130,12 @@ ActiveRecord::Schema.define(version: 20151218213203) do
   create_table "usuarios", force: :cascade do |t|
     t.string   "rut"
     t.string   "nombre"
+    t.string   "apellido_paterno"
+    t.string   "apellido_materno"
     t.string   "correo"
     t.integer  "rol"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end

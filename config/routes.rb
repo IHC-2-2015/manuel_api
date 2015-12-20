@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :encuesta_pregunta
+  resources :pregunta
+  resources :encuesta
+  resources :encuesta_pregunta
   resources :usuarios
   resources :users
   resources :tipos_encuesta
@@ -8,11 +12,12 @@ Rails.application.routes.draw do
   resources :opciones
   resources :grupos
   resources :evaluaciones
-  resources :encuesta
   resources :cursos
   resources :curso_alumnos
   resources :alumnos
   get '/buscar_por_correo', to:'usuarios#buscar_por_correo'
+  get '/buscar_por_rol', to:'usuarios#buscar_por_rol'
+  get '/cursos_profesor', to: 'cursos#cursos_profesor'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -3,6 +3,8 @@ class CreateUsuarios < ActiveRecord::Migration
     create_table :usuarios do |t|
       t.string :rut
       t.string :nombre
+      t.string :apellido_paterno
+      t.string :apellido_materno
       t.string :correo
       t.integer :rol
 

@@ -63,13 +63,21 @@ class UsuariosController < ApplicationController
   
   def buscar_por_correo
       @usuario= Usuario.where("correo = ?", params[:correo])
+      
 
       respond_to do |format|
         format.html { render json: @usuario }
         format.json{ render json: @usuario}
       end
   end
+  def buscar_por_rol
+      @usuario= Usuario.where("rol = ?", params[:rol])
 
+      respond_to do |format|
+        format.html { render json: @usuario }
+        format.json{ render json: @usuario}
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -79,6 +87,6 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:rut, :nombre, :correo, :rol)
+      params.require(:usuario).permit(:rut, :nombre, :apellido_paterno, :apellido_materno, :correo, :rol)
     end
 end

@@ -61,6 +61,14 @@ class CursosController < ApplicationController
     end
   end
 
+  def cursos_profesor
+      @cursos= Curso.where("profesor_id = ?", params[:profesor_id])
+      respond_to do |format|
+        format.html { render json: @cursos }
+        format.json{ render json: @cursos}
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_curso
