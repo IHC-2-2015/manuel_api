@@ -79,7 +79,7 @@ class EncuestaPreguntaController < ApplicationController
       @encuesta_preguntum.each do |pregumtas|
         @preguntas_opciones = @preguntas_opciones +(Preguntum.where(id: pregumtas.pregunta_id))
         for i in 0..4
-          @preguntas_opciones = @preguntas_opciones +(Opcione.where(id: pregumtas.pregunta_id, id: (i+1)))
+          @preguntas_opciones = @preguntas_opciones +(Opcione.where(pregunta_id: pregumtas.pregunta_id, valor: (i)))
         end
         i=0
       end

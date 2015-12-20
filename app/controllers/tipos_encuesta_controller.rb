@@ -61,6 +61,14 @@ class TiposEncuestaController < ApplicationController
     end
   end
 
+  def mostrar_tipos_encuestas
+    @tipos_encuestum= TiposEncuestum.all
+    respond_to do |format|
+      format.html { render json: @tipos_encuestum }
+      format.json{ render json: @tipos_encuestum}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tipos_encuestum
