@@ -60,6 +60,22 @@ class AlumnosController < ApplicationController
     end
   end
 
+  def grupos_alumno
+      @grupos_alumno = []
+      @grupos = []
+      @alumno = Alumno.where("correo = ?", params[:correo])
+      @alumno.each do |alumnos|
+        @grupos_alumno = @grupos_alumno + (GrupoAlumno.where(alumno_id: alumnos.id))
+      end
+      @grupos_alumno.each do |grupos|
+        @grupos = @grupos + (Grupo.where(id: grupos.grupo_id))
+      end
+      respond_to do |format|
+        format.html { render json: @grupos}
+        format.json{ render json: @grupos}
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alumno

@@ -3,7 +3,6 @@ class CreateCursoAlumnos < ActiveRecord::Migration
     create_table :curso_alumnos do |t|
       t.integer :curso_id
       t.integer :alumno_id
-      t.integer :grupo_id
 
       t.timestamps null: false
     end
