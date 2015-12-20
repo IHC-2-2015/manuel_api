@@ -25,7 +25,6 @@ class AlumnosController < ApplicationController
   # POST /alumnos.json
   def create
     @alumno = Alumno.new(alumno_params)
-
     respond_to do |format|
       if @alumno.save
         format.html { redirect_to @alumno, notice: 'Alumno was successfully created.' }

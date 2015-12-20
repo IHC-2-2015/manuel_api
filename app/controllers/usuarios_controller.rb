@@ -28,6 +28,11 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
+        if @usuario.rol == 2
+          @alumno = Alumno.create(rut: @usuario.rut, nombre: @usuario.nombre, apellido_paterno: @usuario.apellido_paterno, apellido_materno: @usuario.apellido_materno, correo: @usuario.correo, usuario_id: @usuario.id)
+        elsif @usuario.rol == 1
+          @profesor = Profesore.create(rut: @usuario.rut, nombre: @usuario.nombre, apellido_paterno: @usuario.apellido_paterno, apellido_materno: @usuario.apellido_materno, correo: @usuario.correo, usuario_id: @usuario.id)
+        end  
         format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
         format.json { render :show, status: :created, location: @usuario }
       else

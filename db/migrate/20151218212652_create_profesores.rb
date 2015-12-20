@@ -6,7 +6,6 @@ class CreateProfesores < ActiveRecord::Migration
       t.string :apellido_paterno
       t.string :apellido_materno
       t.string :correo
-      t.integer :rol
       t.text :descripcion
       t.integer :usuario_id
 

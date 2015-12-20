@@ -5,9 +5,11 @@
 <table>
   <thead>
     <tr>
+      <th>Rut</th>
       <th>Nombre</th>
       <th>Apellido paterno</th>
       <th>Apellido materno</th>
+      <th>Correo</th>
       <th>Descripcion</th>
       <th>Usuario</th>
       <th colspan="3"></th>
@@ -17,9 +19,11 @@
   <tbody>
     <% @profesores.each do |profesore| %>
       <tr>
+        <td><%= profesore.rut %></td>
         <td><%= profesore.nombre %></td>
         <td><%= profesore.apellido_paterno %></td>
         <td><%= profesore.apellido_materno %></td>
+        <td><%= profesore.correo %></td>
         <td><%= profesore.descripcion %></td>
         <td><%= profesore.usuario_id %></td>
         <td><%= link_to 'Show', profesore %></td>

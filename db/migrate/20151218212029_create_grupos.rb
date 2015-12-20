@@ -2,7 +2,6 @@ class CreateGrupos < ActiveRecord::Migration
   def change
     create_table :grupos do |t|
       t.string :nombre
-      t.integer :alumno_id
       t.integer :curso_id
       t.text :descripcion
 

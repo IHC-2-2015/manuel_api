@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :rut %><br>
+    <%= f.text_field :rut %>
+  </div>  
   <div class="field">
     <%= f.label :nombre %><br>
     <%= f.text_field :nombre %>
@@ -22,6 +25,10 @@
   <div class="field">
     <%= f.label :apellido_materno %><br>
     <%= f.text_field :apellido_materno %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.text_field :correo %>
   </div>
   <div class="field">
     <%= f.label :descripcion %><br>

@@ -3,4 +3,5 @@ class Alumno < ActiveRecord::Base
   	has_many :cursos,
     through: :_cu_al,
     source: :curso
+    has_many :grupo_alumnos
 end
