@@ -73,6 +73,22 @@ class EncuestaPreguntaController < ApplicationController
       end
   end
 
+   def preguntas_encuesta_opciones
+      @preguntas_opciones = []
+      @encuesta_preguntum= EncuestaPreguntum.where("encuesta_id = ?", params[:encuesta_id])
+      @encuesta_preguntum.each do |pregumtas|
+        @preguntas_opciones = @preguntas_opciones +(Preguntum.where(id: pregumtas.pregunta_id))
+        for i in 0..4
+          @preguntas_opciones = @preguntas_opciones +(Opcione.where(id: pregumtas.pregunta_id, valor: (i+1)))
+        end
+        i=0
+      end
+      respond_to do |format|
+        format.html { render json: @preguntas_opciones }
+        format.json{ render json: @preguntas_opciones}
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_encuesta_preguntum

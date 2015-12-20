@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :respuesta
   resources :encuesta_pregunta
   resources :pregunta
   resources :encuesta
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   get '/cursos_profesor', to: 'cursos#cursos_profesor'
   get '/mostrar_cursos', to: 'cursos#mostrar_cursos'
   get '/preguntas_encuesta', to: 'encuesta_pregunta#preguntas_encuesta'
+  get '/preguntas_encuesta_opciones', to: 'encuesta_pregunta#preguntas_encuesta_opciones'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
