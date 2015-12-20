@@ -61,6 +61,18 @@ class EncuestaPreguntaController < ApplicationController
     end
   end
 
+  def preguntas_encuesta
+      @preguntum = []
+      @encuesta_preguntum= EncuestaPreguntum.where("encuesta_id = ?", params[:encuesta_id])
+      @encuesta_preguntum.each do |pregumtas|
+        @preguntum = @preguntum +(Preguntum.where(id: pregumtas.pregunta_id))
+      end
+      respond_to do |format|
+        format.html { render json: @preguntum }
+        format.json{ render json: @preguntum}
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_encuesta_preguntum

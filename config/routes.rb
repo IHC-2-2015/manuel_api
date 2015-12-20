@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/buscar_por_rol', to:'usuarios#buscar_por_rol'
   get '/cursos_profesor', to: 'cursos#cursos_profesor'
   get '/mostrar_cursos', to: 'cursos#mostrar_cursos'
+  get '/preguntas_encuesta', to: 'encuesta_pregunta#preguntas_encuesta'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
