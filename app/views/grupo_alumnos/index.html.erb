@@ -7,6 +7,7 @@
     <tr>
       <th>Alumno</th>
       <th>Grupo</th>
+      <th>Es jefe</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= grupo_alumno.alumno_id %></td>
         <td><%= grupo_alumno.grupo_id %></td>
+        <td><%= grupo_alumno.jefe %></td>
         <td><%= link_to 'Show', grupo_alumno %></td>
         <td><%= link_to 'Edit', edit_grupo_alumno_path(grupo_alumno) %></td>
         <td><%= link_to 'Destroy', grupo_alumno, method: :delete, data: { confirm: 'Are you sure?' } %></td>

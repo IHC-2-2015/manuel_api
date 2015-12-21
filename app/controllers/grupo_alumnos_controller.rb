@@ -73,6 +73,22 @@ class GrupoAlumnosController < ApplicationController
       end
   end
 
+  def grupos_jefe
+    @grupo_alumno = []
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    @alumno.each do |alumnos|
+      @grupo_alumno = @grupo_alumno + (GrupoAlumno.where(alumno_id: alumnos.id, jefe: true))
+    end
+    @grupo = []
+    @grupo_alumno.each do |grupos|
+      @grupo = @grupo + (Grupo.where(id: grupos.grupo_id))
+    end
+    respond_to do |format|
+      format.html { render json: @grupo}
+      format.json{ render json: @grupo}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_grupo_alumno
@@ -81,6 +97,6 @@ class GrupoAlumnosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupo_alumno_params
-      params.require(:grupo_alumno).permit(:alumno_id, :grupo_id)
+      params.require(:grupo_alumno).permit(:alumno_id, :grupo_id, :jefe)
     end
 end

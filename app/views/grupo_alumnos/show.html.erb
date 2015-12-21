@@ -10,5 +10,10 @@
   <%= @grupo_alumno.grupo_id %>
 </p>
 
+<p>
+  <strong>Es jefe:</strong>
+  <%= @grupo_alumno.jefe %>
+</p>
+
 <%= link_to 'Edit', edit_grupo_alumno_path(@grupo_alumno) %> |
 <%= link_to 'Back', grupo_alumnos_path %>
