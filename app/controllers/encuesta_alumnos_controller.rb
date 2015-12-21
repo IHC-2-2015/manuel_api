@@ -73,6 +73,39 @@ class EncuestaAlumnosController < ApplicationController
     end
   end
 
+  def buscar_encuestas_alumno
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    @encuestas = []
+    @alumno.each do |alumno|
+      @encuestas = @encuestas + (EncuestaAlumno.where(alumno_id: alumno.id, estado: false))
+    end
+    respond_to do |format|
+      format.html { render json: @encuestas}
+      format.json{ render json: @encuestas}
+    end
+  end
+
+  def grupo_encuesta_pendiente
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    @grupo = []
+    @alumno.each do |alumnos|
+      @encuesta_alumno= EncuestaAlumno.where("encuesta_id = ?", params[:encuesta_id])
+      @encuesta_alumno.each do |encuesta|
+        @encuestas = EncuestaAlumno.where(alumno_id: alumnos.id, encuesta_id: encuesta.encuesta_id)
+        @encuestas.each do |grupos|
+          @grupo_alumno= GrupoAlumno.where(alumno_id: grupos.alumno_id)
+          @grupo_alumno.each do |g|
+            @grupo= @grupo + (Grupo.where(id: g.grupo_id))
+          end
+        end
+      end
+    end
+    respond_to do |format|
+      format.html { render json: @grupo}
+      format.json{ render json: @grupo}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_encuesta_alumno
