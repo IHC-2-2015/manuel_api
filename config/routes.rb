@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get '/grupo_encuesta_pendiente', to: 'encuesta_alumnos#grupo_encuesta_pendiente'
   get '/grupos_jefe', to: 'grupo_alumnos#grupos_jefe'
   get '/incompletas_grupo', to: 'encuesta_alumnos#incompletas_grupo'
+  get '/mostrar_grupos', to: 'grupos#mostrar_grupos'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

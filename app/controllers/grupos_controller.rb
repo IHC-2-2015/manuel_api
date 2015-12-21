@@ -61,6 +61,14 @@ class GruposController < ApplicationController
     end
   end
 
+  def mostrar_grupos
+    @grupos = Grupo.all
+    respond_to do |format|
+      format.html { render json: @grupos}
+      format.json{ render json: @grupos}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_grupo
