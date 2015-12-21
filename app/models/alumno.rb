@@ -4,4 +4,5 @@ class Alumno < ActiveRecord::Base
     through: :_cu_al,
     source: :curso
     has_many :grupo_alumnos
+    has_many :encuesta_alumnos
 end

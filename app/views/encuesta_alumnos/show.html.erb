@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @encuesta_alumno.estado %>
+</p>
+
+<p>
+  <strong>Alumno:</strong>
+  <%= @encuesta_alumno.alumno_id %>
+</p>
+
+<p>
+  <strong>Encuesta:</strong>
+  <%= @encuesta_alumno.encuesta_id %>
+</p>
+
+<%= link_to 'Edit', edit_encuesta_alumno_path(@encuesta_alumno) %> |
+<%= link_to 'Back', encuesta_alumnos_path %>

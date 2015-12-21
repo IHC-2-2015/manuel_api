@@ -1,0 +1,29 @@
+<%= form_for(@encuesta_alumno) do |f| %>
+  <% if @encuesta_alumno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@encuesta_alumno.errors.count, "error") %> prohibited this encuesta_alumno from being saved:</h2>
+
+      <ul>
+      <% @encuesta_alumno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.check_box :estado %>
+  </div>
+  <div class="field">
+    <%= f.label :alumno_id %><br>
+    <%= f.number_field :alumno_id %>
+  </div>
+  <div class="field">
+    <%= f.label :encuesta_id %><br>
+    <%= f.number_field :encuesta_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

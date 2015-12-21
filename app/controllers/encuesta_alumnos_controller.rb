@@ -1,0 +1,86 @@
+class EncuestaAlumnosController < ApplicationController
+  before_action :set_encuesta_alumno, only: [:show, :edit, :update, :destroy]
+
+  # GET /encuesta_alumnos
+  # GET /encuesta_alumnos.json
+  def index
+    @encuesta_alumnos = EncuestaAlumno.all
+  end
+
+  # GET /encuesta_alumnos/1
+  # GET /encuesta_alumnos/1.json
+  def show
+  end
+
+  # GET /encuesta_alumnos/new
+  def new
+    @encuesta_alumno = EncuestaAlumno.new
+  end
+
+  # GET /encuesta_alumnos/1/edit
+  def edit
+  end
+
+  # POST /encuesta_alumnos
+  # POST /encuesta_alumnos.json
+  def create
+    @encuesta_alumno = EncuestaAlumno.new(encuesta_alumno_params)
+
+    respond_to do |format|
+      if @encuesta_alumno.save
+        format.html { redirect_to @encuesta_alumno, notice: 'Encuesta alumno was successfully created.' }
+        format.json { render :show, status: :created, location: @encuesta_alumno }
+      else
+        format.html { render :new }
+        format.json { render json: @encuesta_alumno.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /encuesta_alumnos/1
+  # PATCH/PUT /encuesta_alumnos/1.json
+  def update
+    respond_to do |format|
+      if @encuesta_alumno.update(encuesta_alumno_params)
+        format.html { redirect_to @encuesta_alumno, notice: 'Encuesta alumno was successfully updated.' }
+        format.json { render :show, status: :ok, location: @encuesta_alumno }
+      else
+        format.html { render :edit }
+        format.json { render json: @encuesta_alumno.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /encuesta_alumnos/1
+  # DELETE /encuesta_alumnos/1.json
+  def destroy
+    @encuesta_alumno.destroy
+    respond_to do |format|
+      format.html { redirect_to encuesta_alumnos_url, notice: 'Encuesta alumno was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def buscar_pendientes_alumno
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    @encuestas = []
+    @alumno.each do |alumno|
+      @encuestas = @encuestas + (EncuestaAlumno.where(alumno_id: alumno.id, estado: false))
+    end
+    respond_to do |format|
+      format.html { render json: @encuestas}
+      format.json{ render json: @encuestas}
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_encuesta_alumno
+      @encuesta_alumno = EncuestaAlumno.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def encuesta_alumno_params
+      params.require(:encuesta_alumno).permit(:estado, :alumno_id, :encuesta_id)
+    end
+end
