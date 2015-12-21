@@ -77,7 +77,7 @@ class EncuestaAlumnosController < ApplicationController
     @alumno = Alumno.where("correo = ?", params[:correo])
     @encuestas = []
     @alumno.each do |alumno|
-      @encuestas = @encuestas + (EncuestaAlumno.where(alumno_id: alumno.id, estado: false))
+      @encuestas = @encuestas + (EncuestaAlumno.where(alumno_id: alumno.id, estado: true))
     end
     respond_to do |format|
       format.html { render json: @encuestas}
