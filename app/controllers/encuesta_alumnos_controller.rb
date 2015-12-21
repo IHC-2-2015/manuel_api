@@ -106,6 +106,26 @@ class EncuestaAlumnosController < ApplicationController
     end
   end
 
+  def incompletas_grupo
+    @encuestas = []
+    @alumnos =[]
+    @grupo_alumno= GrupoAlumno.where("grupo_id = ?", params[:grupo_id])
+    @grupo_alumno.each do |g|
+      @encuestas = EncuestaAlumno.where(alumno_id: g.alumno_id, estado: false)
+      @encuestas.each do |encuestas|
+        @encuesta_habilitada = Encuestum.select(:id, :nombre).where(id: encuestas.encuesta_id, estado: true)
+        @alumnos = @alumnos + @encuesta_habilitada
+        @encuesta_habilitada.each do |en_ha|
+          @alumnos = @alumnos + (Alumno.where(id: encuestas.alumno_id))
+        end
+      end
+    end
+    respond_to do |format|
+      format.html { render json: @alumnos}
+      format.json{ render json: @alumnos}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_encuesta_alumno
