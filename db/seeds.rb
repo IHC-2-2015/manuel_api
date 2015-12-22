@@ -13,12 +13,13 @@ Usuario.create(rut: 524777888, nombre: 'Sandra', apellido_paterno: 'Bascur', ape
 Usuario.create(rut: 458786422, nombre: 'Carolina', apellido_paterno: 'Diaz', apellido_materno: 'Aguilera', correo: 'fsdfsfd.vzvwd@usach.cl', rol: 1 )
 Usuario.create(rut: 25545877, nombre: 'Esteban', apellido_paterno: 'Bello', apellido_materno: 'Montenegro', correo: 'ewre.ghgf@usach.cl', rol: 1 )
 Usuario.create(rut: 180729348, nombre: 'Camila', apellido_paterno: 'Marín', apellido_materno: 'González', correo: 'camila.marin@usach.cl', rol: 0 )
-
+Usuario.create(rut: 177087866, nombre: 'Claudia', apellido_paterno: 'Guzmán', apellido_materno: 'Silva', correo: 'claudia.guzmans@usach.cl', rol: 2 )
 
 Alumno.create(rut: 181895683, nombre: 'Francisco', apellido_paterno: 'Avello', apellido_materno: 'Barrera', correo: 'francisco.avello@usach.cl', usuario_id: 1)
 Alumno.create(rut: 222333445, nombre: 'Juan', apellido_paterno: 'Perez', apellido_materno: 'Cabral', correo: 'sdsd.sd@usach.cl', usuario_id: 2 )
 Alumno.create(rut: 551122887, nombre: 'Ricardo', apellido_paterno: 'Paredes', apellido_materno: 'Rodriguez', correo: 'asdaxcx.xzv@usach.cl', usuario_id: 3 )
 Alumno.create(rut: 524777888, nombre: 'Sandra', apellido_paterno: 'Bascur', apellido_materno: 'Tirado', correo: 'ew.zxv@usach.cl', usuario_id: 4 )
+Alumno.create(rut: 177087866, nombre: 'Claudia', apellido_paterno: 'Guzmán', apellido_materno: 'Silva', correo: 'claudia.guzmans@usach.cl', usuario_id: 5 )
 
 Profesore.create(rut: 458786422, nombre: 'Carolina', apellido_paterno: 'Diaz', apellido_materno: 'Aguilera', correo: 'fsdfsfd.vzvwd@usach.cl', descripcion: 'eso', usuario_id: 5 )
 Profesore.create(rut: 25545877, nombre: 'Esteban', apellido_paterno: 'Bello', apellido_materno: 'Montenegro', correo: 'ewre.ghgf@usach.cl', descripcion: 'eso22', usuario_id: 6 )
