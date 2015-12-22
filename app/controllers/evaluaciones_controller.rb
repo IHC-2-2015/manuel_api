@@ -61,6 +61,14 @@ class EvaluacionesController < ApplicationController
     end
   end
 
+  def evaluaciones_curso
+    @evaluaciones = Evaluacione.where("curso_id = ?", params[:curso_id])
+    respond_to do |format|
+      format.html { render json: @evaluaciones}
+      format.json{ render json: @evaluaciones}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evaluacione
