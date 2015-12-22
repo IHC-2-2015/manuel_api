@@ -5,6 +5,7 @@ class CreateCursos < ActiveRecord::Migration
       t.string :nombre
       t.integer :semestre
       t.integer :año
+      t.text :descripcion
 
       t.timestamps null: false
     end

@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20151221022248) do
   create_table "curso_alumnos", force: :cascade do |t|
     t.integer  "curso_id"
     t.integer  "alumno_id"
-    t.integer  "grupo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,6 +39,7 @@ ActiveRecord::Schema.define(version: 20151221022248) do
     t.string   "nombre"
     t.integer  "semestre"
     t.integer  "año"
+    t.text     "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 20151221022248) do
     t.string   "apellido_paterno"
     t.string   "apellido_materno"
     t.string   "correo"
-    t.integer  "rol"
     t.text     "descripcion"
     t.integer  "usuario_id"
     t.datetime "created_at",       null: false
