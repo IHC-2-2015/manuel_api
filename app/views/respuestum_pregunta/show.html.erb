@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Respuesta:</strong>
+  <%= @respuestum_preguntum.respuesta_id %>
+</p>
+
+<p>
+  <strong>Pregunta:</strong>
+  <%= @respuestum_preguntum.pregunta_id %>
+</p>
+
+<p>
+  <strong>Valor opcion:</strong>
+  <%= @respuestum_preguntum.valor_opcion %>
+</p>
+
+<%= link_to 'Edit', edit_respuestum_preguntum_path(@respuestum_preguntum) %> |
+<%= link_to 'Back', respuestum_pregunta_path %>

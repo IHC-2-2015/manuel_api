@@ -69,6 +69,18 @@ class GruposController < ApplicationController
     end
   end
 
+  def grupos_curso
+    @cursos= Curso.where("id = ?", params[:id])
+    @grupos= []
+    @cursos.each do |curso|
+      @grupos = @grupos + Grupo.where(curso_id: curso.id)
+    end
+    respond_to do |format|
+      format.html { render json: @grupos }
+      format.json{ render json: @grupos}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_grupo

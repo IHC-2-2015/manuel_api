@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Respuestum Pregunta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Respuesta</th>
+      <th>Pregunta</th>
+      <th>Valor opcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @respuestum_pregunta.each do |respuestum_preguntum| %>
+      <tr>
+        <td><%= respuestum_preguntum.respuesta_id %></td>
+        <td><%= respuestum_preguntum.pregunta_id %></td>
+        <td><%= respuestum_preguntum.valor_opcion %></td>
+        <td><%= link_to 'Show', respuestum_preguntum %></td>
+        <td><%= link_to 'Edit', edit_respuestum_preguntum_path(respuestum_preguntum) %></td>
+        <td><%= link_to 'Destroy', respuestum_preguntum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Respuestum preguntum', new_respuestum_preguntum_path %>
