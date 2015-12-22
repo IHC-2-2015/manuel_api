@@ -69,6 +69,21 @@ class EvaluacionesController < ApplicationController
     end
   end
 
+  def total_encuestas
+    @evaluaciones = Evaluacione.where("curso_id = ?", params[:curso_id])
+    total_encuestas = 0
+    @evaluaciones.each do |evaluacion|
+      @evaluacion = Evaluacione.where("encuesta_id= ?", params[:encuesta_id])
+      @evaluacion.each do |total|
+        total_encuestas = total.contestada
+      end
+    end
+    respond_to do |format|
+      format.html { render json: total_encuestas}
+      format.json{ render json: total_encuestas}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evaluacione

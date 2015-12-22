@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get '/mostrar_grupos', to: 'grupos#mostrar_grupos'
   get '/grupos_curso', to: 'grupos#grupos_curso'
   get '/evaluaciones_curso', to: 'evaluaciones#evaluaciones_curso'
+  get '/total_encuestas', to: 'evaluaciones#total_encuestas'
   post '/guardar_respuesta', to: 'respuestum_pregunta#guardar_respuesta'
 
   # The priority is based upon order of creation: first created -> highest priority.
