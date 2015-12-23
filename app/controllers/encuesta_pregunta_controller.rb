@@ -1,4 +1,5 @@
 class EncuestaPreguntaController < ApplicationController
+    skip_before_filter :verify_authenticity_token
   before_action :set_encuesta_preguntum, only: [:show, :edit, :update, :destroy]
 
   # GET /encuesta_pregunta
@@ -28,7 +29,7 @@ class EncuestaPreguntaController < ApplicationController
 
     respond_to do |format|
       if @encuesta_preguntum.save
-        format.html { redirect_to @encuesta_preguntum, notice: 'Encuesta preguntum was successfully created.' }
+        #format.html {  }
         format.json { render :show, status: :created, location: @encuesta_preguntum }
       else
         format.html { render :new }

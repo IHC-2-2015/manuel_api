@@ -1,4 +1,5 @@
 class EvaluacionesController < ApplicationController
+  skip_before_filter :verify_authenticity_token  
   before_action :set_evaluacione, only: [:show, :edit, :update, :destroy]
 
   # GET /evaluaciones

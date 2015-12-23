@@ -1,4 +1,5 @@
 class RespuestaController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_respuestum, only: [:show, :edit, :update, :destroy]
 
   # GET /respuesta
