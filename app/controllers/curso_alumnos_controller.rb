@@ -1,4 +1,5 @@
 class CursoAlumnosController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_curso_alumno, only: [:show, :edit, :update, :destroy]
 
   # GET /curso_alumnos

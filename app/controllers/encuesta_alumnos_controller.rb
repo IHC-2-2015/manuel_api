@@ -65,14 +65,20 @@ class EncuestaAlumnosController < ApplicationController
     @alumno = Alumno.where("correo = ?", params[:correo])
     @encuestas = []
     @alumno.each do |alumno|
-      @encuesta_alumno = EncuestaAlumno.where(alumno_id: alumno.id, estado: false)
-      @encuesta_alumno.each do |enc|
-        @encuestas = @encuestas + (Encuestum.where(id: enc.encuesta_id))
-      end
+      @curso = CursoAlumno.joins(:evaluaciones)
+
+     # @encuesta_alumno = EncuestaAlumno.where(alumno_id: alumno.id, estado: false)
+      #@encuesta_alumno.each do |enc|
+       # @encuestas = @encuestas + (Encuestum.where(id: enc.encuesta_id))
+       #  @curso = CursoAlumno.where(alumno_id: enc.alumno_id)
+        #@curso.each do |c|
+        #  @encuestas = @encuestas + (Curso.where(id: c.curso_id))
+        #end
+#      end
     end
     respond_to do |format|
-      format.html { render json: @encuestas}
-      format.json{ render json: @encuestas}
+      format.html { render json: @curso}
+      format.json{ render json: @curso}
     end
   end
 
