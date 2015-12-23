@@ -1,4 +1,5 @@
 class TiposEncuestaController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_tipos_encuestum, only: [:show, :edit, :update, :destroy]
 
   # GET /tipos_encuesta

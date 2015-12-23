@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :encuesta_pregunta
   resources :pregunta
   resources :encuesta
-  resources :encuesta_pregunta
   resources :usuarios
   resources :users
   resources :tipos_encuesta
@@ -41,8 +40,6 @@ Rails.application.routes.draw do
   get '/grupos_curso', to: 'grupos#grupos_curso'
   get '/evaluaciones_curso', to: 'evaluaciones#evaluaciones_curso'
   get '/total_encuestas', to: 'evaluaciones#total_encuestas'
-  get '/guardar_respuesta', to: 'respuestum_pregunta#guardar_respuesta'
-  post '/guardar_respuesta', to: 'respuestum_pregunta#guardar_respuesta'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

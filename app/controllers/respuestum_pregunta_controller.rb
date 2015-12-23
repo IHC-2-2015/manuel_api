@@ -37,22 +37,6 @@ class RespuestumPreguntaController < ApplicationController
     end
   end
 
-  def guardar_respuesta
-    respuesta = params[:respuesta_id]
-    pregunta = params[:pregunta_id]
-    valor_opcion = params[:valor_opcion]
-    @respuestum_preguntum = RespuestumPreguntum.new(respuesta_id: respuesta, pregunta_id: pregunta, valor_opcion: valor_opcion)
-
-    respond_to do |format|
-      if @respuestum_preguntum.save
-        format.html { render json: 1}
-        format.json { render json: 'guardado'}
-      else
-        #format.html { render :new }
-        format.json { render json: 'no'}
-      end
-    end
-  end
   # PATCH/PUT /respuestum_pregunta/1
   # PATCH/PUT /respuestum_pregunta/1.json
   def update
