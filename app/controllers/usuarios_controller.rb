@@ -1,4 +1,5 @@
 class UsuariosController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios

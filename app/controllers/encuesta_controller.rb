@@ -1,4 +1,5 @@
 class EncuestaController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_encuestum, only: [:show, :edit, :update, :destroy]
 
   # GET /encuesta
@@ -69,7 +70,7 @@ class EncuestaController < ApplicationController
         @encuesta_preguntum= EncuestaPreguntum.where(encuesta_id: encuestas.id)
         @encuesta_preguntum.each do |preguntas|
           @todo_encuestas = @todo_encuestas+(Preguntum.where(id: preguntas.pregunta_id))
-          for i in 0..4
+          for i in 0..7
             @todo_encuestas = @todo_encuestas +(Opcione.where(pregunta_id: preguntas.pregunta_id, valor: (i)))
           end
         end
