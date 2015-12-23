@@ -77,6 +77,6 @@ class TiposEncuestaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tipos_encuestum_params
-      params.require(:tipos_encuestum).permit(:nombre)
+      params.require(:tipos_encuestum).permit(:nombre, :descripcion)
     end
 end

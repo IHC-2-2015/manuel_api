@@ -1,1 +1,1 @@
-json.extract! @tipos_encuestum, :id, :nombre, :created_at, :updated_at
+json.extract! @tipos_encuestum, :id, :nombre, :descripcion, :created_at, :updated_at

@@ -62,10 +62,14 @@ class EvaluacionesController < ApplicationController
   end
 
   def evaluaciones_curso
+    @en = []
     @evaluaciones = Evaluacione.where("curso_id = ?", params[:curso_id])
+    @evaluaciones.each do |evaluacion|
+      @en = @en + (Encuestum.select(:estado, :nombre, :descripcion).where(id: evaluacion.encuesta_id)) + Evaluacione.where(encuesta_id: evaluacion.encuesta_id)
+    end
     respond_to do |format|
-      format.html { render json: @evaluaciones}
-      format.json{ render json: @evaluaciones}
+      format.html { render json: @en}
+      format.json{ render json: @en}
     end
   end
 

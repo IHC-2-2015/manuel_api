@@ -35,11 +35,13 @@ Rails.application.routes.draw do
   get '/grupo_encuesta_pendiente', to: 'encuesta_alumnos#grupo_encuesta_pendiente'
   get '/grupo_encuesta', to: 'encuesta_alumnos#grupo_encuesta'
   get '/grupos_jefe', to: 'grupo_alumnos#grupos_jefe'
+  get '/encuestas_jefe', to: 'grupo_alumnos#encuestas_jefe'
   get '/incompletas_grupo', to: 'encuesta_alumnos#incompletas_grupo'
   get '/mostrar_grupos', to: 'grupos#mostrar_grupos'
   get '/grupos_curso', to: 'grupos#grupos_curso'
   get '/evaluaciones_curso', to: 'evaluaciones#evaluaciones_curso'
   get '/total_encuestas', to: 'evaluaciones#total_encuestas'
+  get '/guardar_respuesta', to: 'respuestum_pregunta#guardar_respuesta'
   post '/guardar_respuesta', to: 'respuestum_pregunta#guardar_respuesta'
 
   # The priority is based upon order of creation: first created -> highest priority.

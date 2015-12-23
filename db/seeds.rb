@@ -57,8 +57,8 @@ GrupoAlumno.create(alumno_id: 1 , grupo_id:5)
 GrupoAlumno.create(alumno_id: 3 , grupo_id:5)
 GrupoAlumno.create(alumno_id: 2 , grupo_id:6)
 
-TiposEncuestum.create(nombre: 'Encuesta 360')
-TiposEncuestum.create(nombre: 'Encuesta Liderazgo')
+TiposEncuestum.create(nombre: 'Encuesta 360', descripcion: 'Descripcion de la encuesta 360')
+TiposEncuestum.create(nombre: 'Encuesta Liderazgo', descripcion: 'Descripcion de la encuesta de Liderazgo')
 
 Encuestum.create(estado: true, nombre: 'Encuesta IHC 360 semestre 2', descripcion: 'Contesten la encuesta', tipo_encuesta_id: 1)
 Encuestum.create(estado: true, nombre: 'Encuesta IHC Liderazgo semestre 2', descripcion: 'sada la encuesta', tipo_encuesta_id: 2)

@@ -89,6 +89,26 @@ class GrupoAlumnosController < ApplicationController
     end
   end
 
+  def encuestas_jefe
+    @grupo_alumno = []
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    @alumno.each do |alumnos|
+      @grupo_alumno = @grupo_alumno + (GrupoAlumno.where(alumno_id: alumnos.id, jefe: true))
+    end
+    @encuestas = []
+    @grupo_alumno.each do |grupos|
+      @encuestas = @encuestas + (EncuestaAlumno.where(alumno_id: grupos.alumno_id))
+    end
+    @encuestas_al =[]
+    @encuestas.each do |en|
+      @encuestas_al= @encuestas_al + (Encuestum.where(id: en.encuesta_id))
+    end
+    respond_to do |format|
+      format.html { render json: @encuestas_al}
+      format.json{ render json: @encuestas_al}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_grupo_alumno

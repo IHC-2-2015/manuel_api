@@ -137,8 +137,9 @@ ActiveRecord::Schema.define(version: 20151222163906) do
 
   create_table "tipos_encuesta", force: :cascade do |t|
     t.string   "nombre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "usuarios", force: :cascade do |t|
