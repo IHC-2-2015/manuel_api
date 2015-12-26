@@ -62,6 +62,27 @@ class GrupoAlumnosController < ApplicationController
     end
   end
 
+  def borrar_alumno
+    @grupo_alumno = []
+    @g =[]
+    @alumno_grupo= GrupoAlumno.where("grupo_id = ?", params[:grupo_id])
+    @alumno_grupo.each do |ga|
+      @alumno = GrupoAlumno.where("alumno_id = ?", params[:alumno_id])
+      @alumno.each do |a|
+        @g = @g + (GrupoAlumno.where(alumno_id: a.alumno_id, grupo_id: ga.grupo_id))
+        @g.each do |g|
+          @grupo_alumno = GrupoAlumno.find(g.id)
+        end
+      end
+    end
+    @grupo_alumno.destroy
+    respond_to do |format|
+      format.html { redirect_to grupo_alumnos_url, notice: 'Grupo alumno was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+    
+  end
+
   def buscar_por_grupo
       @alumnos_por_grupo = []
       @grupo_alumno= GrupoAlumno.where("grupo_id = ?", params[:grupo_id])

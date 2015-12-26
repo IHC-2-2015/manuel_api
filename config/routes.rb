@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get '/grupos_curso', to: 'grupos#grupos_curso'
   get '/evaluaciones_curso', to: 'evaluaciones#evaluaciones_curso'
   get '/total_encuestas', to: 'evaluaciones#total_encuestas'
+  delete '/borrar_alumno', to: 'grupo_alumnos#borrar_alumno'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
