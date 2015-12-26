@@ -75,6 +75,26 @@ class CursoAlumnosController < ApplicationController
     
   end
 
+  def borrar_alumno_curso
+    @curso_alumno = []
+    @c =[]
+    @alumno_curso= CursoAlumno.where("curso_id = ?", params[:curso_id])
+    @alumno_curso.each do |ca|
+      @alumno = CursoAlumno.where("alumno_id = ?", params[:alumno_id])
+      @alumno.each do |a|
+        @c = @c + (CursoAlumno.where(alumno_id: a.alumno_id, curso_id: ca.curso_id))
+        @c.each do |c|
+          @curso_alumno = CursoAlumno.find(c.id)
+        end
+      end
+    end
+    @curso_alumno.destroy
+    respond_to do |format|
+      format.html { redirect_to curso_alumnos_url, notice: 'Curso alumno was successfully destroyed.' }
+      format.json { head :no_content }
+    end  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_curso_alumno

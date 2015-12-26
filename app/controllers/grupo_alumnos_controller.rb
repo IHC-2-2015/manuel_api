@@ -79,8 +79,7 @@ class GrupoAlumnosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to grupo_alumnos_url, notice: 'Grupo alumno was successfully destroyed.' }
       format.json { head :no_content }
-    end
-    
+    end  
   end
 
   def buscar_por_grupo
