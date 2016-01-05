@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.4.1
 -- Dumped by pg_dump version 9.4.1
--- Started on 2016-01-05 09:45:15
+-- Started on 2016-01-05 14:28:14
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -90,7 +90,8 @@ CREATE TABLE curso_alumnos (
     curso_id integer,
     alumno_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    ayudante boolean
 );
 
 
@@ -968,18 +969,18 @@ SELECT pg_catalog.setval('alumnos_id_seq', 22, true);
 -- Data for Name: curso_alumnos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY curso_alumnos (id, curso_id, alumno_id, created_at, updated_at) FROM stdin;
-1	1	1	2015-12-23 02:21:00.836856	2015-12-23 02:21:00.836856
-2	1	2	2015-12-23 02:21:00.844661	2015-12-23 02:21:00.844661
-4	2	2	2015-12-23 02:21:00.851955	2015-12-23 02:21:00.851955
-5	2	1	2015-12-23 02:21:00.854895	2015-12-23 02:21:00.854895
-6	2	4	2015-12-23 02:21:00.858499	2015-12-23 02:21:00.858499
-7	2	3	2015-12-23 02:21:00.862093	2015-12-23 02:21:00.862093
-8	3	1	2015-12-23 02:21:00.866157	2015-12-23 02:21:00.866157
-9	3	4	2015-12-23 02:21:00.869733	2015-12-23 02:21:00.869733
-11	1	3	2016-01-03 04:49:39.595271	2016-01-03 04:49:39.595271
-13	10	1	2016-01-05 03:48:28.837467	2016-01-05 03:48:28.837467
-14	10	2	2016-01-05 03:51:18.938949	2016-01-05 03:51:18.938949
+COPY curso_alumnos (id, curso_id, alumno_id, created_at, updated_at, ayudante) FROM stdin;
+1	1	1	2015-12-23 02:21:00.836856	2015-12-23 02:21:00.836856	\N
+2	1	2	2015-12-23 02:21:00.844661	2015-12-23 02:21:00.844661	\N
+4	2	2	2015-12-23 02:21:00.851955	2015-12-23 02:21:00.851955	\N
+5	2	1	2015-12-23 02:21:00.854895	2015-12-23 02:21:00.854895	\N
+6	2	4	2015-12-23 02:21:00.858499	2015-12-23 02:21:00.858499	\N
+7	2	3	2015-12-23 02:21:00.862093	2015-12-23 02:21:00.862093	\N
+8	3	1	2015-12-23 02:21:00.866157	2015-12-23 02:21:00.866157	\N
+9	3	4	2015-12-23 02:21:00.869733	2015-12-23 02:21:00.869733	\N
+11	1	3	2016-01-03 04:49:39.595271	2016-01-03 04:49:39.595271	\N
+13	10	1	2016-01-05 03:48:28.837467	2016-01-05 03:48:28.837467	\N
+14	10	2	2016-01-05 03:51:18.938949	2016-01-05 03:51:18.938949	\N
 \.
 
 
@@ -1679,7 +1680,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2016-01-05 09:45:16
+-- Completed on 2016-01-05 14:28:14
 
 --
 -- PostgreSQL database dump complete
