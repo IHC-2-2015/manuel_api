@@ -115,6 +115,30 @@ class CursoAlumnosController < ApplicationController
     end
   end
 
+  def es_ayudante
+    @curso_alumno = []
+    @g =[]
+    @alumno_curso=CursoAlumno.where("curso_id = ?", params[:curso_id])
+    @alumno_curso.each do |ga|
+      @alumno = CursoAlumno.where("alumno_id = ?", params[:alumno_id])
+      @alumno.each do |a|
+        @g = @g + (CursoAlumno.where(alumno_id: a.alumno_id, curso_id: ga.curso_id))
+        @g.each do |g|
+          @curso_alumno = CursoAlumno.find(g.id)
+        end
+      end
+    end
+    respond_to do |format|
+      if @curso_alumno.update(curso_alumno_params)
+        format.html { redirect_to @curso_alumno, notice: 'Grupo alumno was successfully updated.' }
+        format.json { render :show, status: :ok, location: @curso_alumno }
+      else
+        format.html { render :edit }
+        format.json { render json: @curso_alumno.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_curso_alumno

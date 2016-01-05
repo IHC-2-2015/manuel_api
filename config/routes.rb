@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   delete '/borrar_alumno', to: 'grupo_alumnos#borrar_alumno'
   delete '/borrar_alumno_curso', to: 'curso_alumnos#borrar_alumno_curso'
   put '/es_jefe', to: 'grupo_alumnos#es_jefe'
+  put '/es_ayudante', to: 'curso_alumnos#es_ayudante'
   get 'ayudante_curso', to: 'curso_alumnos#ayudante_curso'
 
   # The priority is based upon order of creation: first created -> highest priority.
