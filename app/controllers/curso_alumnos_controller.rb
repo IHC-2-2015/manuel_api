@@ -139,6 +139,21 @@ class CursoAlumnosController < ApplicationController
     end
   end
 
+  def datos_ayudante
+    @alumno = []
+    @alumno_curso= CursoAlumno.where("curso_id = ?", params[:curso_id])
+    @alumno_curso.each do |ac|
+      @curso = CursoAlumno.where(ayudante: true, curso_id: ac.curso_id)
+    end
+    @curso.each do |c| 
+        @alumno = @alumno + (Alumno.where(id: c.alumno_id))  
+    end
+    respond_to do |format|
+      format.html { render json: @alumno}
+      format.json{ render json: @alumno}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_curso_alumno
