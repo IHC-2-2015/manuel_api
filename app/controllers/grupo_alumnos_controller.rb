@@ -118,6 +118,29 @@ class GrupoAlumnosController < ApplicationController
       end
   end
 
+  # def buscar_no_evaluados
+  #     @alumnos_no_evaluados_por_grupo = []
+  #     @evaluacion = Evaluacione.where("encuesta_id = ?", params[:encuesta_id])
+  #     @evaluacion.each do |eva|
+  #       @respuestas = Respuestum.where("encuestador_id = ?", params[:encuestador_id])
+  #       @respuestas.each do |res|
+  #         @encuestador = Respuestum.where(evaluacion_id: eva.id, encuestador_id: res.encuestador_id)
+  #         @encuestador.each do |encu|
+  #           @grupo= GrupoAlumno.where("grupo_id = ?", params[:grupo_id])
+  #           @grupo.each do |gr|
+  #             @alumnos_no_evaluados = Alumno.where("alumno_id != ?", encu.encuestado_id)
+  #             @alumnos_no_evaluados.each do |alumnos|
+  #               @alumnos_no_evaluados_por_grupo = @alumnos_no_evaluados_por_grupo +(GrupoAlumno.where("id != ?" alumnos.alumno_id))
+  #             end
+  #         end
+  #       end
+  #     end
+  #     respond_to do |format|
+  #       format.html { render json: @alumnos_no_evaluados_por_grupo}
+  #       format.json{ render json: @alumnos_no_evaluados_por_grupo}
+  #     end
+  # end
+
   def grupos_jefe
     @grupo_alumno = []
     @alumno = Alumno.where("correo = ?", params[:correo])

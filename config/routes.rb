@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/buscar_por_correo', to:'usuarios#buscar_por_correo'
   get '/buscar_por_rol', to:'usuarios#buscar_por_rol'
   get '/buscar_por_grupo', to:'grupo_alumnos#buscar_por_grupo'
+  get '/buscar_no_evaluados', to: 'grupo_alumnos#buscar_no_evaluados'
   get '/grupos_alumno', to:'alumnos#grupos_alumno'
   get '/cursos_profesor', to: 'cursos#cursos_profesor'
   get '/mostrar_cursos', to: 'cursos#mostrar_cursos'
@@ -44,6 +45,7 @@ Rails.application.routes.draw do
   delete '/borrar_alumno', to: 'grupo_alumnos#borrar_alumno'
   delete '/borrar_alumno_curso', to: 'curso_alumnos#borrar_alumno_curso'
   put '/es_jefe', to: 'grupo_alumnos#es_jefe'
+  get 'ayudante_curso', to: 'curso_alumnos#ayudante_curso'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

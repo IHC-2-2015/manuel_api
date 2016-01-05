@@ -9,6 +9,9 @@
   <strong>Alumno:</strong>
   <%= @curso_alumno.alumno_id %>
 </p>
-
+<p>
+ <strong>Ayudante:</strong>
+  <%= @curso_alumno.ayudante %>
+</p>
 <%= link_to 'Edit', edit_curso_alumno_path(@curso_alumno) %> |
 <%= link_to 'Back', curso_alumnos_path %>

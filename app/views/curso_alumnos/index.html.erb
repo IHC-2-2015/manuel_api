@@ -7,6 +7,7 @@
     <tr>
       <th>Curso</th>
       <th>Alumno</th>
+      <th>Ayudante</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= curso_alumno.curso_id %></td>
         <td><%= curso_alumno.alumno_id %></td>
+        <td><%= curso_alumno.ayudante %></td>
         <td><%= link_to 'Show', curso_alumno %></td>
         <td><%= link_to 'Edit', edit_curso_alumno_path(curso_alumno) %></td>
         <td><%= link_to 'Destroy', curso_alumno, method: :delete, data: { confirm: 'Are you sure?' } %></td>

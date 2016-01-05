@@ -95,6 +95,26 @@ class CursoAlumnosController < ApplicationController
     end  
   end
 
+  def ayudante_curso
+    @curso_alumno = []
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    @alumno.each do |alumnos|
+      @curso_alumno = @curso_alumno + (CursoAlumno.where(alumno_id: alumnos.id, ayudante: true))
+    end
+    @todo = []
+    @curso_alumno.each do |cursos|
+      @todo = @todo + (Curso.where(id: cursos.curso_id))
+      @curso = Curso.where(id: cursos.curso_id)
+      @curso.each do |c|
+        @todo =@todo + (FuncionalidadAyudanteCurso.where(curso_alumno_id: cursos.id))
+      end
+    end
+    respond_to do |format|
+      format.html { render json: @todo}
+      format.json{ render json: @todo}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_curso_alumno
@@ -103,6 +123,6 @@ class CursoAlumnosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def curso_alumno_params
-      params.require(:curso_alumno).permit(:curso_id, :alumno_id)
+      params.require(:curso_alumno).permit(:curso_id, :alumno_id, :ayudante)
     end
 end
