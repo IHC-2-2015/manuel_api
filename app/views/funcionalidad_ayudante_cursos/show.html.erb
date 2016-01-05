@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Curso alumno:</strong>
+  <%= @funcionalidad_ayudante_curso.curso_alumno_id %>
+</p>
+
+<p>
+  <strong>Funcionalidad:</strong>
+  <%= @funcionalidad_ayudante_curso.funcionalidad_id %>
+</p>
+
+<%= link_to 'Edit', edit_funcionalidad_ayudante_curso_path(@funcionalidad_ayudante_curso) %> |
+<%= link_to 'Back', funcionalidad_ayudante_cursos_path %>

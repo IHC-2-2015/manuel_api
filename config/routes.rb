@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :funcionalidads
+  resources :funcionalidad_ayudante_cursos
   resources :respuestum_pregunta
   resources :encuesta_alumnos
   resources :grupo_alumnos

@@ -3,6 +3,7 @@ class CreateCursoAlumnos < ActiveRecord::Migration
     create_table :curso_alumnos do |t|
       t.integer :curso_id
       t.integer :alumno_id
+      t.boolean :ayudante
 
       t.timestamps null: false
     end

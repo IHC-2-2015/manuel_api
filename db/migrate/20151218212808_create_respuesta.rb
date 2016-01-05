@@ -1,7 +1,6 @@
 class CreateRespuesta < ActiveRecord::Migration
   def change
     create_table :respuesta do |t|
-      t.integer :modulo
       t.integer :encuestado_id
       t.integer :encuestador_id
       t.integer :evaluacion_id

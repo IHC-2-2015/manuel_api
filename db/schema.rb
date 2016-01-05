@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222163906) do
+ActiveRecord::Schema.define(version: 20160105022247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151222163906) do
   create_table "curso_alumnos", force: :cascade do |t|
     t.integer  "curso_id"
     t.integer  "alumno_id"
+    t.boolean  "ayudante"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +73,19 @@ ActiveRecord::Schema.define(version: 20151222163906) do
     t.integer  "contestada"
     t.integer  "curso_id"
     t.integer  "encuesta_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "funcionalidad_ayudante_cursos", force: :cascade do |t|
+    t.integer  "curso_alumno_id"
+    t.integer  "funcionalidad_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "funcionalidads", force: :cascade do |t|
+    t.text     "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -119,7 +133,6 @@ ActiveRecord::Schema.define(version: 20151222163906) do
   end
 
   create_table "respuesta", force: :cascade do |t|
-    t.integer  "modulo"
     t.integer  "encuestado_id"
     t.integer  "encuestador_id"
     t.integer  "evaluacion_id"

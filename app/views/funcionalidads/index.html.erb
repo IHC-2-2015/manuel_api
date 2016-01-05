@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Funcionalidads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funcionalidads.each do |funcionalidad| %>
+      <tr>
+        <td><%= funcionalidad.descripcion %></td>
+        <td><%= link_to 'Show', funcionalidad %></td>
+        <td><%= link_to 'Edit', edit_funcionalidad_path(funcionalidad) %></td>
+        <td><%= link_to 'Destroy', funcionalidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Funcionalidad', new_funcionalidad_path %>

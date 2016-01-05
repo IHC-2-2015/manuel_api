@@ -1,0 +1,25 @@
+<%= form_for(@funcionalidad_ayudante_curso) do |f| %>
+  <% if @funcionalidad_ayudante_curso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@funcionalidad_ayudante_curso.errors.count, "error") %> prohibited this funcionalidad_ayudante_curso from being saved:</h2>
+
+      <ul>
+      <% @funcionalidad_ayudante_curso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :curso_alumno_id %><br>
+    <%= f.number_field :curso_alumno_id %>
+  </div>
+  <div class="field">
+    <%= f.label :funcionalidad_id %><br>
+    <%= f.number_field :funcionalidad_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
