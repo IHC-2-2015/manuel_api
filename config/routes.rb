@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :pregunta
   resources :encuesta
   resources :usuarios
-  resources :users
   resources :tipos_encuesta
   resources :respuesta
   resources :profesores

@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Modulo</th>
       <th>Encuestado</th>
       <th>Encuestador</th>
       <th>Evaluacion</th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @respuesta.each do |respuestum| %>
       <tr>
-        <td><%= respuestum.modulo %></td>
         <td><%= respuestum.encuestado_id %></td>
         <td><%= respuestum.encuestador_id %></td>
         <td><%= respuestum.evaluacion_id %></td>
