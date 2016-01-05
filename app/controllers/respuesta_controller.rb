@@ -38,6 +38,25 @@ class RespuestaController < ApplicationController
     end
   end
 
+  def guardar_respuesta
+    @respuestum = Respuestum.new(respuestum_params)
+    @evaluacion = Evaluacione.where("id = ?", params[:evaluacion_id])
+    @evaluacion.each do |eva|
+      @encuesta = EncuestaAlumno.where(encuesta_id: eva.encuesta_id, alumno_id: params[:encuestador_id]).first
+      @encuesta.estado=true
+      @encuesta.save
+    end
+    respond_to do |format|
+      if @respuestum.save          
+        format.html { redirect_to @respuestum, notice: 'Respuestum was successfully created.' }
+        format.json { render :show, status: :created, location: @respuestum }
+      else
+        format.html { render :new }
+        format.json { render json: @respuestum.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /respuesta/1
   # PATCH/PUT /respuesta/1.json
   def update

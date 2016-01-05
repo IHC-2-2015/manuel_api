@@ -77,6 +77,13 @@ class AlumnosController < ApplicationController
       end
   end
 
+  def datos_alumno
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    respond_to do |format|
+      format.html { render json: @alumno}
+      format.json{ render json: @alumno}
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alumno
