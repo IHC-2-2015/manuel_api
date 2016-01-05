@@ -74,6 +74,19 @@ class EvaluacionesController < ApplicationController
     end
   end
 
+  def evaluaciones_curso_encuesta
+    @en = []
+    @evaluaciones = Evaluacione.where("curso_id = ?", params[:curso_id])
+    @evaluaciones.each do |evaluacion|
+      @en = Evaluacione.where("encuesta_id = ?", params[:encuesta_id])
+    end
+    respond_to do |format|
+      format.html { render json: @en}
+      format.json{ render json: @en}
+    end
+  end
+
+
   def total_encuestas
     @evaluaciones = Evaluacione.where("curso_id = ?", params[:curso_id])
     total_encuestas = 0
