@@ -70,6 +70,14 @@ class TiposEncuestaController < ApplicationController
     end
   end
 
+  def datos_tipo_encuesta
+    @tipos_encuestum= TiposEncuestum.where("id = ?", params[:id])
+    respond_to do |format|
+      format.html { render json: @tipos_encuestum }
+      format.json{ render json: @tipos_encuestum}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tipos_encuestum
