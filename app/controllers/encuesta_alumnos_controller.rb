@@ -52,6 +52,16 @@ class EncuestaAlumnosController < ApplicationController
     end
   end
 
+  def actualizar_encuesta
+    @encuesta_alumno = EncuestaAlumno.where(encuesta_id: params[:encuesta_id], alumno_id: params[:alumno_id]).first
+    @encuesta_alumno.estado= params[:estado]
+    @encuesta_alumno.save
+    respond_to do |format|
+      format.html { render json: @encuesta_alumno}
+      format.json{ render json: @encuesta_alumno}
+    end
+  end
+
   # DELETE /encuesta_alumnos/1
   # DELETE /encuesta_alumnos/1.json
   def destroy
