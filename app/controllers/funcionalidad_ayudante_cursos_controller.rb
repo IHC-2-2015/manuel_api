@@ -1,4 +1,5 @@
 class FuncionalidadAyudanteCursosController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
   before_action :set_funcionalidad_ayudante_curso, only: [:show, :edit, :update, :destroy]
 
   # GET /funcionalidad_ayudante_cursos
@@ -26,6 +27,24 @@ class FuncionalidadAyudanteCursosController < ApplicationController
   def create
     @funcionalidad_ayudante_curso = FuncionalidadAyudanteCurso.new(funcionalidad_ayudante_curso_params)
 
+    respond_to do |format|
+      if @funcionalidad_ayudante_curso.save
+        format.html { redirect_to @funcionalidad_ayudante_curso, notice: 'Funcionalidad ayudante curso was successfully created.' }
+        format.json { render :show, status: :created, location: @funcionalidad_ayudante_curso }
+      else
+        format.html { render :new }
+        format.json { render json: @funcionalidad_ayudante_curso.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def funcionalidad_ayudante
+    curso = params[:curso_id]
+    alumno = params[:alumno_id]   
+    funcionalidad = params[:funcionalidad_id]    
+    @curso_alumno = CursoAlumno.where(curso_id: curso, alumno_id: alumno).first
+    curso_alumno_id = @curso_alumno.id
+    @funcionalidad_ayudante_curso = FuncionalidadAyudanteCurso.create(curso_alumno_id: curso_alumno_id, funcionalidad_id: funcionalidad)
     respond_to do |format|
       if @funcionalidad_ayudante_curso.save
         format.html { redirect_to @funcionalidad_ayudante_curso, notice: 'Funcionalidad ayudante curso was successfully created.' }
