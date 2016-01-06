@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160106053622) do
     t.integer  "curso_id"
     t.integer  "alumno_id"
     t.boolean  "ayudante"
+    t.boolean  "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 20160106053622) do
     t.integer  "semestre"
     t.integer  "ano"
     t.text     "descripcion"
+    t.integer  "id_unico"
+    t.boolean  "estado"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -129,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160106053622) do
     t.string   "correo"
     t.text     "descripcion"
     t.integer  "usuario_id"
+    t.boolean  "estado"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

@@ -6,6 +6,8 @@ class CreateCursos < ActiveRecord::Migration
       t.integer :semestre
       t.integer :año
       t.text :descripcion
+      t.integer :id_unico
+      t.boolean :estado
 
       t.timestamps null: false
     end

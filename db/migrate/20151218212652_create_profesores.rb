@@ -8,6 +8,7 @@ class CreateProfesores < ActiveRecord::Migration
       t.string :correo
       t.text :descripcion
       t.integer :usuario_id
+      t.boolean :estado
 
       t.timestamps null: false
     end
