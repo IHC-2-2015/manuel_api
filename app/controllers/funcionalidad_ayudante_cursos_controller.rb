@@ -56,6 +56,21 @@ class FuncionalidadAyudanteCursosController < ApplicationController
     end
   end
 
+  def listar_func_ayu
+    curso = params[:curso_id]
+    alumno = params[:alumno_id]     
+    @curso_alumno = []
+    @fac = []
+    @curso_alumno = CursoAlumno.where(curso_id: curso, alumno_id: alumno)
+    @curso_alumno.each do |ca|
+      @fac = @fac + (FuncionalidadAyudanteCurso.where(curso_alumno_id: ca.id))
+    end
+    respond_to do |format|
+      format.html { render json: @fac}
+      format.json{ render json: @fac}
+    end
+  end
+
   def contar_funcionalidades
     curso = params[:curso_id]
     alumno = params[:alumno_id]     

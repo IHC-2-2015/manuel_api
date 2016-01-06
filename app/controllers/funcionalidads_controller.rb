@@ -37,6 +37,14 @@ class FuncionalidadsController < ApplicationController
     end
   end
 
+  def listar_funcionalidades
+    @funcionalidad = Funcionalidad.all
+    respond_to do |format|
+      format.html { render json: @funcionalidad}
+      format.json{ render json: @funcionalidad}
+    end
+  end
+
   # PATCH/PUT /funcionalidads/1
   # PATCH/PUT /funcionalidads/1.json
   def update

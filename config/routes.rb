@@ -56,6 +56,8 @@ Rails.application.routes.draw do
   put '/actualizar_encuesta', to: 'encuesta_alumnos#actualizar_encuesta'
   get '/contar_funcionalidades', to: 'funcionalidad_ayudante_cursos#contar_funcionalidades'
   get '/datos_tipo_encuesta', to: 'tipos_encuesta#datos_tipo_encuesta'
+  get '/listar_funcionalidades', to: 'funcionalidads#listar_funcionalidades'
+  get '/listar_func_ayu', to: 'funcionalidad_ayudante_cursos#listar_func_ayu'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
