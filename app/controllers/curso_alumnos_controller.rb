@@ -130,6 +130,7 @@ class CursoAlumnosController < ApplicationController
     end
     respond_to do |format|
       if @curso_alumno.update(curso_alumno_params)
+        @curso_alumno.crear_funcionalidades #!< se crean las funcionalidades del ayudante
         format.html { redirect_to @curso_alumno, notice: 'Grupo alumno was successfully updated.' }
         format.json { render :show, status: :ok, location: @curso_alumno }
       else
