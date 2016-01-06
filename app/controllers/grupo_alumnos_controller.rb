@@ -91,7 +91,7 @@ class GrupoAlumnosController < ApplicationController
     @grupo = []
     @alumno_grupo= GrupoAlumno.where("grupo_id = ?", params[:grupo_id])
     @alumno_grupo.each do |ag|
-      @grupo = @grupo + (GrupoAlumno.where(jefe: true, grupo_id: ag.grupo_id))
+      @grupo = GrupoAlumno.where(jefe: true, grupo_id: ag.grupo_id)
     end
     @grupo.each do |g| 
         @alumno = @alumno + (Alumno.where(id: g.alumno_id))  
