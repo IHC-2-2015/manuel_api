@@ -24,9 +24,9 @@ Alumno.create(rut: 177087866, nombre: 'Claudia', apellido_paterno: 'Guzmán', ap
 Profesore.create(rut: 458786422, nombre: 'Carolina', apellido_paterno: 'Diaz', apellido_materno: 'Aguilera', correo: 'fsdfsfd.vzvwd@usach.cl', descripcion: 'eso', usuario_id: 5 )
 Profesore.create(rut: 25545877, nombre: 'Esteban', apellido_paterno: 'Bello', apellido_materno: 'Montenegro', correo: 'ewre.ghgf@usach.cl', descripcion: 'eso22', usuario_id: 6 )
 
-Curso.create(profesor_id: 1, nombre: 'IHC', semestre: 2, año:2015, descripcion: 'Curso IHC Edmundo Leiva')
-Curso.create(profesor_id: 2, nombre: 'Pingeso', semestre: 2, año:2015, descripcion: 'Curso PINGESO 2/2015' )
-Curso.create(profesor_id: 1, nombre: 'CYS', semestre: 2, año:2015, descripcion: 'Curso CyS' )
+Curso.create(profesor_id: 1, nombre: 'IHC', semestre: 2, ano:2015, descripcion: 'Curso IHC Edmundo Leiva')
+Curso.create(profesor_id: 2, nombre: 'Pingeso', semestre: 2, ano:2015, descripcion: 'Curso PINGESO 2/2015' )
+Curso.create(profesor_id: 1, nombre: 'CYS', semestre: 2, ano:2015, descripcion: 'Curso CyS' )
 
 CursoAlumno.create(curso_id:1, alumno_id:1)
 CursoAlumno.create(curso_id:1, alumno_id:2)
