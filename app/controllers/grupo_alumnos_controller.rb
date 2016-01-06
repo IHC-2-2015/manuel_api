@@ -85,6 +85,21 @@ class GrupoAlumnosController < ApplicationController
       end
     end
   end
+
+  def datos_jefe
+    @alumno = []
+    @alumno_grupo= GrupoAlumno.where("grupo_id = ?", params[:grupo_id])
+    @alumno_grupo.each do |ag|
+      @grupo = GrupoAlumno.where(jefe: true, grupo_id: ag.grupo_id)
+    end
+    @grupo.each do |g| 
+        @alumno = @alumno + (Alumno.where(id: g.alumno_id))  
+    end
+    respond_to do |format|
+      format.html { render json: @alumno}
+      format.json{ render json: @alumno}
+    end
+  end
   
   def borrar_alumno
     @grupo_alumno = []
