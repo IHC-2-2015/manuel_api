@@ -141,9 +141,10 @@ class CursoAlumnosController < ApplicationController
 
   def datos_ayudante
     @alumno = []
+    @curso = []
     @alumno_curso= CursoAlumno.where("curso_id = ?", params[:curso_id])
     @alumno_curso.each do |ac|
-      @curso = CursoAlumno.where(ayudante: true, curso_id: ac.curso_id)
+      @curso = @curso + (CursoAlumno.where(ayudante: true, curso_id: ac.curso_id))
     end
     @curso.each do |c| 
         @alumno = @alumno + (Alumno.where(id: c.alumno_id))  
