@@ -51,6 +51,8 @@ Rails.application.routes.draw do
   get '/evaluaciones_curso_encuesta', to: 'evaluaciones#evaluaciones_curso_encuesta'
   get '/datos_alumno', to: 'alumnos#datos_alumno'
   post '/guardar_respuesta', to: 'respuesta#guardar_respuesta'
+  post '/funcionalidades_ayudante', to: 'funcionalidad_ayudante_cursos#funcionalidades_ayudante'
+  put '/actualizar_encuesta_360', to: 'encuesta_alumnos#actualizar_encuesta_360'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

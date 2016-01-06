@@ -40,12 +40,12 @@ class RespuestaController < ApplicationController
 
   def guardar_respuesta
     @respuestum = Respuestum.new(respuestum_params)
-    @evaluacion = Evaluacione.where("id = ?", params[:evaluacion_id])
-    @evaluacion.each do |eva|
-      @encuesta = EncuestaAlumno.where(encuesta_id: eva.encuesta_id, alumno_id: params[:encuestador_id]).first
-      @encuesta.estado=true
-      @encuesta.save
-    end
+    #@evaluacion = Evaluacione.where("id = ?", params[:evaluacion_id]).first
+    # @evaluacion.each do |eva|
+    #   @encuesta = EncuestaAlumno.where(encuesta_id: eva.encuesta_id, alumno_id: params[:encuestador_id]).first
+    #   @encuesta.estado=true
+    #   @encuesta.save
+    # end
     respond_to do |format|
       if @respuestum.save          
         format.html { redirect_to @respuestum, notice: 'Respuestum was successfully created.' }
