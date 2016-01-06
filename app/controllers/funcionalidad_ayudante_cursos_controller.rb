@@ -56,6 +56,21 @@ class FuncionalidadAyudanteCursosController < ApplicationController
     end
   end
 
+  def contar_funcionalidades
+    curso = params[:curso_id]
+    alumno = params[:alumno_id]     
+    @curso_alumno = CursoAlumno.where(curso_id: curso, alumno_id: alumno).first
+    curso_alumno_id = @curso_alumno.id
+    @fac = FuncionalidadAyudanteCurso.where(curso_alumno_id: curso_alumno_id)
+    cantidad=0
+    cantidad= @fac.count
+    respond_to do |format|
+      format.html { render json: cantidad }
+      format.json{ render json: cantidad}
+    end
+
+  end
+
   # PATCH/PUT /funcionalidad_ayudante_cursos/1
   # PATCH/PUT /funcionalidad_ayudante_cursos/1.json
   def update

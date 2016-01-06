@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   post '/guardar_respuesta', to: 'respuesta#guardar_respuesta'
   post '/funcionalidad_ayudante', to: 'funcionalidad_ayudante_cursos#funcionalidad_ayudante'
   put '/actualizar_encuesta', to: 'encuesta_alumnos#actualizar_encuesta'
+  get '/contar_funcionalidades', to: 'funcionalidad_ayudante_cursos#contar_funcionalidades'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
