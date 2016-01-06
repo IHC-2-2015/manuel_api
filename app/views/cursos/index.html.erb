@@ -10,6 +10,8 @@
       <th>Semestre</th>
       <th>Año</th>
       <th>Descripcion</th>
+      <th>Id Unico</th>
+      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +24,8 @@
         <td><%= curso.semestre %></td>
         <td><%= curso.ano %></td>
         <td><%= curso.descripcion %></td>
+        <td><%= curso.id_unico %></td>
+        <td><%= curso.estado %></td>
         <td><%= link_to 'Show', curso %></td>
         <td><%= link_to 'Edit', edit_curso_path(curso) %></td>
         <td><%= link_to 'Destroy', curso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
