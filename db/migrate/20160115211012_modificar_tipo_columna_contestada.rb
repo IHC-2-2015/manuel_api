@@ -4,3 +4,4 @@ class ModificarTipoColumnaContestada < ActiveRecord::Migration
   	add_column :evaluaciones, :contestada, :boolean 
   end
 end
+	
