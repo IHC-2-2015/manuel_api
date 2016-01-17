@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20160115212546) do
     t.integer  "alumno_id"
     t.boolean  "ayudante"
     t.boolean  "estado"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "jefe_proyecto"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "cursos", force: :cascade do |t|
