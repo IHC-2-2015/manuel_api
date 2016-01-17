@@ -5,7 +5,6 @@ class CreateCursoAlumnos < ActiveRecord::Migration
       t.integer :alumno_id
       t.boolean :ayudante
       t.boolean :estado
-      t.boolean :jefe_proyecto
 
       t.timestamps null: false
     end

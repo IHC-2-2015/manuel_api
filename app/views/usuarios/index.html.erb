@@ -11,6 +11,7 @@
       <th>Apellido_materno</th>
       <th>Correo</th>
       <th>Rol</th>
+      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
         <td><%= usuario.apellido_materno %></td>
         <td><%= usuario.correo %></td>
         <td><%= usuario.rol %></td>
+        <td><%= usuario.estado %></td>
         <td><%= link_to 'Show', usuario %></td>
         <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
         <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
