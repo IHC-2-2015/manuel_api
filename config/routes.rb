@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get '/preguntas_encuesta', to: 'encuesta_pregunta#preguntas_encuesta'
   get '/preguntas_encuesta_opciones', to: 'encuesta_pregunta#preguntas_encuesta_opciones'
   get '/mostrar_encuestas', to: 'encuesta#mostrar_encuestas'
+  get '/encuestas_profesor', to: 'encuesta#encuestas_profesor'
   get '/mostrar_tipos_encuestas', to: 'tipos_encuesta#mostrar_tipos_encuestas'
   get '/buscar_alumnos_curso', to: 'curso_alumnos#buscar_alumnos_curso'
   get '/buscar_pendientes_alumno', to: 'encuesta_alumnos#buscar_pendientes_alumno'
