@@ -65,11 +65,22 @@ class EncuestaController < ApplicationController
   def mostrar_encuestas
 
       @encuestum=Encuestum.all
-     
+
       respond_to do |format|
         format.html { render json: @encuestum }
         format.json{ render json: @encuestum}
-      end 
+      end
+  end
+
+  # GET /encuestas_profesor?profesor_id=1
+  def encuestas_profesor
+    @encuestas = Encuestum.where(profesor_id: nil)
+    @encuestas << Encuestum.where(profesor_id: params[:profesor_id])
+
+    respond_to do |format|
+      format.html { render json: @encuestas}
+      format.json{ render json: @encuestas}
+    end
   end
 
   private
