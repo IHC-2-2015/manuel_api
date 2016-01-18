@@ -57,6 +57,17 @@ class RespuestaController < ApplicationController
     end
   end
 
+  def entregar_respuesta
+    @respuesta = Respuestum.where(encuestador_id:params[:encuestador_id], encuestado_id:params[:encuestado_id], evaluacion_id:params[:evaluacion_id])
+
+    respond_to do |format|
+      format.html { render json: @respuesta }
+      format.json { render json: @respuesta }
+    end
+
+  end
+
+
   # PATCH/PUT /respuesta/1
   # PATCH/PUT /respuesta/1.json
   def update
@@ -92,3 +103,4 @@ class RespuestaController < ApplicationController
       params.require(:respuestum).permit( :encuestado_id, :encuestador_id, :evaluacion_id)
     end
 end
+ 
