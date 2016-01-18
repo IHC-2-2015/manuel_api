@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   get '/datos_tipo_encuesta', to: 'tipos_encuesta#datos_tipo_encuesta'
   get '/listar_funcionalidades', to: 'funcionalidads#listar_funcionalidades'
   get '/listar_func_ayu', to: 'funcionalidad_ayudante_cursos#listar_func_ayu'
+  get '/entregar_respuesta', to: 'respuesta#entregar_respuesta'
 
   post '/guardar_respuesta', to: 'respuesta#guardar_respuesta'
   post '/funcionalidad_ayudante', to: 'funcionalidad_ayudante_cursos#funcionalidad_ayudante'
