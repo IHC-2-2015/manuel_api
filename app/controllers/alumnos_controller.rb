@@ -51,6 +51,20 @@ class AlumnosController < ApplicationController
     end
   end
 
+  def actualizar_alumno
+    @alumno = Alumno.where(id: params[:id]).first
+    @alumno.estado= params[:estado]
+    @alumno.save
+    @id_user = @alumno.usuario_id
+    @usuario = Usuario.where(id: @id_user).first
+    @usuario.estado= params[:estado]
+    @usuario.save
+    respond_to do |format|
+      format.html { render json: @alumno}
+      format.json{ render json: @alumno}
+    end
+  end
+
   # DELETE /alumnos/1
   # DELETE /alumnos/1.json
   def destroy
@@ -92,6 +106,6 @@ class AlumnosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def alumno_params
-      params.require(:alumno).permit(:rut, :nombre, :apellido_paterno, :apellido_materno, :correo, :usuario_id)
+      params.require(:alumno).permit(:rut, :nombre, :apellido_paterno, :apellido_materno, :correo, :usuario_id, :estado)
     end
 end

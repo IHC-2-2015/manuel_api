@@ -52,6 +52,20 @@ class ProfesoresController < ApplicationController
     end
   end
 
+  def actualizar_profesor
+    @profesor = Profesore.where(id: params[:id]).first
+    @profesor.estado= params[:estado]
+    @profesor.save
+    @id_user = @profesor.usuario_id
+    @usuario = Usuario.where(id: @id_user).first
+    @usuario.estado= params[:estado]
+    @usuario.save
+    respond_to do |format|
+      format.html { render json: @profesor}
+      format.json{ render json: @profesor}
+    end
+  end
+
   # DELETE /profesores/1
   # DELETE /profesores/1.json
   def destroy

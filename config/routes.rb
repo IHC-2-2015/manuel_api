@@ -43,24 +43,29 @@ Rails.application.routes.draw do
   get '/grupos_curso', to: 'grupos#grupos_curso'
   get '/evaluaciones_curso', to: 'evaluaciones#evaluaciones_curso'
   get '/total_encuestas', to: 'evaluaciones#total_encuestas'
-  delete '/borrar_alumno', to: 'grupo_alumnos#borrar_alumno'
-  delete '/borrar_alumno_curso', to: 'curso_alumnos#borrar_alumno_curso'
-  put '/es_jefe', to: 'grupo_alumnos#es_jefe'
-  put '/es_ayudante', to: 'curso_alumnos#es_ayudante'
   get 'ayudante_curso', to: 'curso_alumnos#ayudante_curso'
   get '/datos_ayudante', to: 'curso_alumnos#datos_ayudante'
   get '/datos_jefe', to: 'grupo_alumnos#datos_jefe'
   get '/evaluaciones_curso_encuesta', to: 'evaluaciones#evaluaciones_curso_encuesta'
   get '/datos_alumno', to: 'alumnos#datos_alumno'
-  post '/guardar_respuesta', to: 'respuesta#guardar_respuesta'
-  post '/funcionalidad_ayudante', to: 'funcionalidad_ayudante_cursos#funcionalidad_ayudante'
-  put '/actualizar_encuesta', to: 'encuesta_alumnos#actualizar_encuesta'
   get '/contar_funcionalidades', to: 'funcionalidad_ayudante_cursos#contar_funcionalidades'
   get '/datos_tipo_encuesta', to: 'tipos_encuesta#datos_tipo_encuesta'
   get '/listar_funcionalidades', to: 'funcionalidads#listar_funcionalidades'
   get '/listar_func_ayu', to: 'funcionalidad_ayudante_cursos#listar_func_ayu'
 
+  post '/guardar_respuesta', to: 'respuesta#guardar_respuesta'
+  post '/funcionalidad_ayudante', to: 'funcionalidad_ayudante_cursos#funcionalidad_ayudante'
+ 
 
+  put '/es_jefe', to: 'grupo_alumnos#es_jefe'
+  put '/es_ayudante', to: 'curso_alumnos#es_ayudante'
+  put '/actualizar_encuesta', to: 'encuesta_alumnos#actualizar_encuesta'
+  put '/actualizar_alumno', to: 'alumnos#actualizar_alumno'
+  put '/actualizar_profesor', to: 'profesores#actualizar_profesor'
+
+  delete '/borrar_alumno', to: 'grupo_alumnos#borrar_alumno'
+  delete '/borrar_alumno_curso', to: 'curso_alumnos#borrar_alumno_curso'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
