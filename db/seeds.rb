@@ -60,10 +60,14 @@ GrupoAlumno.create(alumno_id: 2 , grupo_id:6)
 TiposEncuestum.create(nombre: 'Encuesta 360', descripcion: 'Descripcion de la encuesta 360')
 TiposEncuestum.create(nombre: 'Encuesta Liderazgo', descripcion: 'Descripcion de la encuesta de Liderazgo')
 
-Encuestum.create(estado: true, nombre: 'Encuesta IHC 360 semestre 2', descripcion: 'Contesten la encuesta', tipo_encuesta_id: 1)
-Encuestum.create(estado: true, nombre: 'Encuesta IHC Liderazgo semestre 2', descripcion: 'sada la encuesta', tipo_encuesta_id: 2)
-Encuestum.create(estado: true, nombre: 'Encuesta 360 Pingeso', descripcion: 'Hola la encuesta', tipo_encuesta_id: 1)
-Encuestum.create(estado: true, nombre: 'Encuesta Liderazgo CYS', descripcion: 'sdsdqw la d', tipo_encuesta_id: 2)
+enc_360 = Encuestum.create(estado: true,
+                 nombre: 'Encuesta 360',
+                 descripcion: 'Encuesta para evaluar el trabajo que han realizado los compañeros de trabajo',
+                 tipo_encuesta_id: 1)
+enc_lid = Encuestum.create(estado: true,
+                 nombre: 'Encuesta Liderazgo',
+                 descripcion: 'Encuesta para evaluar el trabajo del jefe de grupo, de proyecto, o la persona que lidere el grupo de trabajo',
+                 tipo_encuesta_id: 2)
 
 Preguntum.create(enunciado: '¿Como se llama?')
 Preguntum.create(enunciado: '¿Como me llamo?')
@@ -80,10 +84,8 @@ EncuestaPreguntum.create(encuesta_id: 4, pregunta_id: 2)
 EncuestaPreguntum.create(encuesta_id: 4, pregunta_id: 3)
 EncuestaPreguntum.create(encuesta_id: 4, pregunta_id: 4)
 
-Evaluacione.create(contestada: 1, curso_id:1, encuesta_id:1)
-Evaluacione.create(contestada: 0, curso_id:1, encuesta_id:2)
-Evaluacione.create(contestada: 0, curso_id:2, encuesta_id:3)
-Evaluacione.create(contestada: 0, curso_id:3, encuesta_id:4)
+Evaluacione.create(contestada: true, nombre: 'Sprint 1', curso_id:1, encuesta: enc_360)
+Evaluacione.create(contestada: false, nombre: 'Sprint 2', curso_id:1, encuesta: enc_lid)
 
 Respuestum.create(encuestado_id: 1,encuestador_id: 2, evaluacion_id: 1)
 Respuestum.create(encuestado_id: 3,encuestador_id: 2, evaluacion_id: 1)
