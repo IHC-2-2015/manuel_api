@@ -1,5 +1,5 @@
 class EvaluacionesController < ApplicationController
-  skip_before_filter :verify_authenticity_token  
+  skip_before_filter :verify_authenticity_token
   before_action :set_evaluacione, only: [:show, :edit, :update, :destroy]
 
   # GET /evaluaciones
@@ -110,6 +110,6 @@ class EvaluacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluacione_params
-      params.require(:evaluacione).permit(:contestada, :curso_id, :encuesta_id)
+      params.require(:evaluacione).permit(:contestada, :nombre, :curso_id, :encuesta_id)
     end
 end
