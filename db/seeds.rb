@@ -13,18 +13,18 @@ Usuario.create(rut: 179582287, nombre:	'Carolina', apellido_paterno: 'Vasquez', 
 Usuario.create(rut: 181159049, nombre: 'Pablo',	apellido_paterno: 'Salinas', apellido_materno: 'Morales', correo: 'pablo.salinas@usach.cl', rol: 0, estado: true)
 Usuario.create(rut: 181207981, nombre:	'Sergio', apellido_paterno:	'Medina', apellido_materno:	'Medel', correo: 'sergio.medina@usach.cl', rol:	0, estado: true)
 Usuario.create(rut: 180729348, nombre:	'Camila', apellido_paterno:	'Marín', apellido_materno:	'González', correo:	'camila.marin@usach.cl', rol: 0, estado: true)
-Usuario.create(rut: 6838172K, nombre:	'Edmundo',apellido_paterno:	'leiva',apellido_materno:	'leiva', correo: 'directormanuelapp@gmail.com', rol: 0, estado: true)	
+Usuario.create(rut: '6838172K', nombre:	'Edmundo',apellido_paterno:	'leiva',apellido_materno:	'leiva', correo: 'directormanuelapp@gmail.com', rol: 0, estado: true)	
 
 ##############
 # PROFESORES #
 ##############
-pro1 = Usuario.create(rut: 17832733k, nombre: 'Ian', apellido_paterno:	'Mejias', apellido_materno:	'Conejeros', correo: 'ian.mejias@usach.cl', rol: 1, estado: true)
+pro1 = Usuario.create(rut: '17832733k', nombre: 'Ian', apellido_paterno:	'Mejias', apellido_materno:	'Conejeros', correo: 'ian.mejias@usach.cl', rol: 1, estado: true)
 pro2 = Usuario.create(rut: 176814063, nombre:	'Claudia',apellido_paterno:	'Pérez',apellido_materno:	'Ormeño', correo:	'claudia.perozo@usach.cl', rol:	1, estado: true)
 pro3 = Usuario.create(rut: 184553740, nombre: 'Pablo',	apellido_paterno: 'Salinas',apellido_materno:	'Cabañas', correo:	'pablo.salinasc@usach.cl', rol:	1, estado: true)
 pro4 = Usuario.create(rut: 181226722, nombre:	'Daniel',apellido_paterno:	'Morales',apellido_materno:	'Aguilera', correo:	'daniel.morales@usach.cl', rol:	1, estado: true)
 pro5 = Usuario.create(rut: 106138451, nombre:	'Jose',apellido_paterno: 'Castro', apellido_materno: 'Lobos', correo: 'profesormanuelapp@gmail.com', rol:	1, estado: true)
 
-Profesore.create(rut: 17832733k, nombre: 'Ian', apellido_paterno:	'Mejias', apellido_materno:	'Conejeros', correo: 'ian.mejias@usach.cl', descripcion:,'', usuario_id: pro1.id, estado: true)
+Profesore.create(rut: '17832733k', nombre: 'Ian', apellido_paterno:	'Mejias', apellido_materno:	'Conejeros', correo: 'ian.mejias@usach.cl', descripcion:,'', usuario_id: pro1.id, estado: true)
 Profesore.create(rut: 176814063, nombre:	'Claudia',apellido_paterno:	'Pérez',apellido_materno:	'Ormeño', correo:	'claudia.perozo@usach.cl',descripcion:,'', usuario_id: pro2.id, estado: true)
 Profesore.create(rut: 184553740, nombre: 'Pablo',	apellido_paterno: 'Salinas',apellido_materno:	'Cabañas', correo:	'pablo.salinasc@usach.cl', descripcion:,'', usuario_id: pro3.id, estado: true)
 Profesore.create(rut: 181226722, nombre:	'Daniel',apellido_paterno:	'Morales',apellido_materno:	'Aguilera', correo:	'daniel.morales@usach.cl', descripcion:,'', usuario_id: pro4.id, estado: true)
