@@ -16,16 +16,16 @@
     <%= f.check_box :contestada %>
   </div>
   <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
     <%= f.label :curso_id %><br>
     <%= f.select :curso_id, Curso.all.collect {|c| [c.nombre, c.id] }, {include_blank: true}  %>
   </div>
   <div class="field">
     <%= f.label :encuesta_id %><br>
     <%= f.select :encuesta_id, Encuestum.all.collect {|e| [e.nombre, e.id]}, {include_blank: true} %>
+  </div>
+    <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
   </div>
   <div class="actions">
     <%= f.submit %>

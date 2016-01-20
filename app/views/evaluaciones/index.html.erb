@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>Contestada</th>
-      <th>Nombre</th>
       <th>Curso</th>
       <th>Encuesta</th>
+      <th>Nombre</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +17,9 @@
     <% @evaluaciones.each do |evaluacione| %>
       <tr>
         <td><%= evaluacione.contestada %></td>
-        <td><%= evaluacione.nombre %></td>
         <td><%= evaluacione.curso.nombre %></td>
         <td><%= evaluacione.encuesta.nombre %></td>
+        <td><%= evaluacione.nombre %></td>
         <td><%= link_to 'Mostrar', evaluacione %></td>
         <td><%= link_to 'Editar', edit_evaluacione_path(evaluacione) %></td>
         <td><%= link_to 'Eliminar', evaluacione, method: :delete, data: { confirm: 'Are you sure?' } %></td>

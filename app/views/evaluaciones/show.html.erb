@@ -6,11 +6,6 @@
 </p>
 
 <p>
-  <strong>Nombre:</strong>
-  <%= @evaluacione.nombre %>
-</p>
-
-<p>
   <strong>Curso:</strong>
   <%= @evaluacione.curso.nombre %>
 </p>
@@ -18,6 +13,11 @@
 <p>
   <strong>Encuesta:</strong>
   <%= @evaluacione.encuesta.nombre %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @evaluacione.nombre %>
 </p>
 
 <%= link_to 'Edit', edit_evaluacione_path(@evaluacione) %> |
