@@ -98,4 +98,16 @@ class CursosController < ApplicationController
     def curso_params
       params.require(:curso).permit(:profesor_id, :nombre, :semestre, :ano, :descripcion, :id_unico, :estado)
     end
+
+    def actualizar_curso
+      #curso = Curso.find(params[:curso_id])
+      @curso = Curso.where(id: params[:id]).first
+      @curso.estado= params[:estado]
+      @curso.save       
+      respond_to do |format|
+        format.html { render json: @curso}
+        format.json{ render json: @curso}
+    end
+  end
 end
+
