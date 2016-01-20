@@ -69,6 +69,17 @@ class CursosController < ApplicationController
         format.json{ render json: @cursos}
       end
   end
+
+  def cursos_alumno
+    alumno = Alumno.find(params[:alumno_id])
+    @cursos = alumno.cursos
+
+    respond_to do |format|
+      format.html { render json: @cursos }
+      format.json{ render json: @cursos}
+    end
+  end
+
   def mostrar_cursos
       @cursos= Curso.all
       respond_to do |format|

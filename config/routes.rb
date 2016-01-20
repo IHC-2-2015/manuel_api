@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/buscar_no_evaluados', to: 'grupo_alumnos#buscar_no_evaluados'
   get '/grupos_alumno', to:'alumnos#grupos_alumno'
   get '/cursos_profesor', to: 'cursos#cursos_profesor'
+  get '/cursos_alumno', to: 'cursos#cursos_alumno'
   get '/mostrar_cursos', to: 'cursos#mostrar_cursos'
   get '/preguntas_encuesta', to: 'encuesta_pregunta#preguntas_encuesta'
   get '/preguntas_encuesta_opciones', to: 'encuesta_pregunta#preguntas_encuesta_opciones'
