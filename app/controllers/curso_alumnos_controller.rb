@@ -76,23 +76,22 @@ class CursoAlumnosController < ApplicationController
   end
 
   def borrar_alumno_curso
-    @curso_alumno = []
-    @c =[]
-    @alumno_curso= CursoAlumno.where("curso_id = ?", params[:curso_id])
-    @alumno_curso.each do |ca|
-      @alumno = CursoAlumno.where("alumno_id = ?", params[:alumno_id])
-      @alumno.each do |a|
-        @c = @c + (CursoAlumno.where(alumno_id: a.alumno_id, curso_id: ca.curso_id))
-        @c.each do |c|
-          @curso_alumno = CursoAlumno.find(c.id)
-        end
-      end
-    end
-    @curso_alumno.destroy
-    respond_to do |format|
-      format.html { redirect_to curso_alumnos_url, notice: 'Curso alumno was successfully destroyed.' }
-      format.json { head :no_content }
-    end  
+    total = 0
+    @curso_alumno = CursoAlumno.where(alumno_id: params[:alumno_id], curso_id: params[:curso_id])
+    total = @curso_alumno.count
+    @curso_alumno = CursoAlumno.where(alumno_id: params[:alumno_id], curso_id: params[:curso_id]).first
+    if total !=0
+      @curso_alumno.destroy
+      respond_to do |format|
+        format.html { render json: 'Borrado'}
+        format.json { render json: 'Borrado'}
+      end 
+    else
+      respond_to do |format|
+        format.html { render json: 'No existe alumno'}
+        format.json { render json: 'No existe alumno'}
+      end 
+    end 
   end
 
   def ayudante_curso
