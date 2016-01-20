@@ -17,8 +17,8 @@
   <tbody>
     <% @curso_alumnos.each do |curso_alumno| %>
       <tr>
-        <td><%= curso_alumno.curso_id %></td>
-        <td><%= curso_alumno.alumno_id %></td>
+        <td><%= curso_alumno.curso.nombre %></td>
+        <td><%= curso_alumno.alumno.nombre %></td>
         <td><%= curso_alumno.ayudante %></td>
         <td><%= curso_alumno.estado %></td>
         <td><%= curso_alumno.jefe_proyecto %></td>

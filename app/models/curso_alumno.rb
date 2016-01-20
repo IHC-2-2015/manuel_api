@@ -1,27 +1,42 @@
 class CursoAlumno < ActiveRecord::Base
-  belongs_to :grupo
   belongs_to :curso
   belongs_to :alumno, class_name: 'Alumno'
-  has_many :funcionalidades, class_name: 'FuncionalidadAyudanteCurso'
 
-  def crear_funcionalidades
-    begin
-      CursoAlumno.transaction do 
-        func = Funcionalidad.all
+  after_create -> {self.ayudante = false}
+  after_update :setear_funcionalidades
 
-        func.each do |f|
-          self.funcionalidades.create(
-            permitido: false,
-            funcionalidad_id: f.id
-          )
-        end 
+  private
+    def setear_funcionalidades
+      if self.ayudante_changed? and self.ayudante
+        crear_funcionalidades
+      elsif self.ayudante_changed?
+        eliminar_funcionalidades
       end
-    rescue => e
-      raise ActiveRecord::Rollback
     end
-  end
 
-  def eliminar_funcionalidades
-    self.funcionalidades.destroy_all
-  end
+    def crear_funcionalidades
+      begin
+        CursoAlumno.transaction do
+          func = Funcionalidad.all
+
+          func.each do |f|
+            FuncionalidadAyudanteCurso.create(
+              funcionalidad: f,
+              curso: self.curso,
+              alumno: self.alumno,
+              permitido: false
+            )
+          end
+        end
+      rescue => e
+        raise ActiveRecord::Rollback
+      end
+    end
+
+    def eliminar_funcionalidades
+      FuncionalidadAyudanteCurso.where(
+        curso_id: self.curso.id,
+        alumno_id: self.alumno.id
+      ).destroy_all
+    end
 end

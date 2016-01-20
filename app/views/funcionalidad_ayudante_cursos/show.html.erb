@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Curso alumno:</strong>
-  <%= @funcionalidad_ayudante_curso.curso_alumno_id %>
+  <strong>Curso:</strong>
+  <%= @funcionalidad_ayudante_curso.curso.nombre %>
+</p>
+
+<p>
+  <strong>Alumno:</strong>
+  <%= @funcionalidad_ayudante_curso.alumno.nombre %>
 </p>
 
 <p>
   <strong>Funcionalidad:</strong>
-  <%= @funcionalidad_ayudante_curso.funcionalidad_id %>
+  <%= @funcionalidad_ayudante_curso.funcionalidad.descripcion %>
+</p>
+
+<p>
+  <strong>Permitido:</strong>
+  <%= @funcionalidad_ayudante_curso.permitido %>
 </p>
 
 <%= link_to 'Edit', edit_funcionalidad_ayudante_curso_path(@funcionalidad_ayudante_curso) %> |
