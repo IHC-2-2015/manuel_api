@@ -24,11 +24,11 @@ pro3 = Usuario.create(rut: 184553740, nombre: 'Pablo',	apellido_paterno: 'Salina
 pro4 = Usuario.create(rut: 181226722, nombre:	'Daniel',apellido_paterno:	'Morales',apellido_materno:	'Aguilera', correo:	'daniel.morales@usach.cl', rol:	1, estado: true)
 pro5 = Usuario.create(rut: 106138451, nombre:	'Jose',apellido_paterno: 'Castro', apellido_materno: 'Lobos', correo: 'profesormanuelapp@gmail.com', rol:	1, estado: true)
 
-Profesore.create(rut: '17832733k', nombre: 'Ian', apellido_paterno:	'Mejias', apellido_materno:	'Conejeros', correo: 'ian.mejias@usach.cl', descripcion:,'', usuario_id: pro1.id, estado: true)
-Profesore.create(rut: 176814063, nombre:	'Claudia',apellido_paterno:	'Pérez',apellido_materno:	'Ormeño', correo:	'claudia.perozo@usach.cl',descripcion:,'', usuario_id: pro2.id, estado: true)
-Profesore.create(rut: 184553740, nombre: 'Pablo',	apellido_paterno: 'Salinas',apellido_materno:	'Cabañas', correo:	'pablo.salinasc@usach.cl', descripcion:,'', usuario_id: pro3.id, estado: true)
-Profesore.create(rut: 181226722, nombre:	'Daniel',apellido_paterno:	'Morales',apellido_materno:	'Aguilera', correo:	'daniel.morales@usach.cl', descripcion:,'', usuario_id: pro4.id, estado: true)
-Profesore.create(rut: 106138451, nombre:	'Jose',apellido_paterno: 'Castro', apellido_materno: 'Lobos', correo: 'profesormanuelapp@gmail.com', descripcion:,'', usuario_id: pro5.id, estado: true)
+Profesore.create(rut: '17832733k', nombre: 'Ian', apellido_paterno:	'Mejias', apellido_materno:	'Conejeros', correo: 'ian.mejias@usach.cl', descripcion:'', usuario_id: pro1.id, estado: true)
+Profesore.create(rut: 176814063, nombre:	'Claudia',apellido_paterno:	'Pérez',apellido_materno:	'Ormeño', correo:	'claudia.perozo@usach.cl',descripcion:'', usuario_id: pro2.id, estado: true)
+Profesore.create(rut: 184553740, nombre: 'Pablo',	apellido_paterno: 'Salinas',apellido_materno:	'Cabañas', correo:	'pablo.salinasc@usach.cl', descripcion:'', usuario_id: pro3.id, estado: true)
+Profesore.create(rut: 181226722, nombre:	'Daniel',apellido_paterno:	'Morales',apellido_materno:	'Aguilera', correo:	'daniel.morales@usach.cl', descripcion:'', usuario_id: pro4.id, estado: true)
+Profesore.create(rut: 106138451, nombre:	'Jose',apellido_paterno: 'Castro', apellido_materno: 'Lobos', correo: 'profesormanuelapp@gmail.com', descripcion:'', usuario_id: pro5.id, estado: true)
 
 ###########
 # ALUMNOS #
