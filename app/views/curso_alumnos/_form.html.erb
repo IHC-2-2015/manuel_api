@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :curso_id %><br>
-    <%= f.number_field :curso_id %>
+    <%= f.select :curso_id, Curso.all.collect {|c| [c.nombre, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :alumno_id %><br>
-    <%= f.number_field :alumno_id %>
+    <%= f.select :alumno_id, Alumno.all.collect {|a| [a.nombre, a.id]} %>
   </div>
   <div class="field">
     <%= f.label :ayudante %><br>
