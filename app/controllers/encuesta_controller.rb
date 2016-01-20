@@ -29,8 +29,8 @@ class EncuestaController < ApplicationController
 
     respond_to do |format|
       if @encuestum.save
-        format.html { redirect_to @encuestum, notice: 'Encuestum was successfully created.' }
-        format.json { render :show, status: :created, location: @encuestum }
+        format.html { render json: @encuestum}
+        format.json { render json: @encuestum}
       else
         format.html { render :new }
         format.json { render json: @encuestum.errors, status: :unprocessable_entity }
