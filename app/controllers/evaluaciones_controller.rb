@@ -110,6 +110,6 @@ class EvaluacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluacione_params
-      params.require(:evaluacione).permit(:contestada, :nombre, :curso_id, :encuesta_id)
+      params.require(:evaluacione).permit(:contestada, :curso_id, :encuesta_id, :nombre)
     end
 end
