@@ -12,12 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :curso_alumno_id %><br>
-    <%= f.number_field :curso_alumno_id %>
+    <%= f.label :curso_id %><br>
+    <%= f.select :curso_id, Curso.all.collect {|c| [c.nombre, c.id]}%>
+  </div>
+  <div class="field">
+    <%= f.label :alumno_id %><br>
+    <%= f.select :alumno_id, Alumno.all.collect {|a| [a.nombre, a.id]}%>
   </div>
   <div class="field">
     <%= f.label :funcionalidad_id %><br>
-    <%= f.number_field :funcionalidad_id %>
+    <%= f.select :funcionalidad_id, Funcionalidad.all.collect {|f| [f.descripcion, f.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>

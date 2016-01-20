@@ -57,14 +57,10 @@ class FuncionalidadAyudanteCursosController < ApplicationController
   end
 
   def listar_func_ayu
-    curso = params[:curso_id]
-    alumno = params[:alumno_id]     
-    @curso_alumno = []
-    @fac = []
-    @curso_alumno = CursoAlumno.where(curso_id: curso, alumno_id: alumno)
-    @curso_alumno.each do |ca|
-      @fac = @fac + (FuncionalidadAyudanteCurso.where(curso_alumno_id: ca.id))
-    end
+    @fac = FuncionalidadAyudanteCurso.where(
+      curso_id: params[:curso_id],
+      alumno_id: params[:alumno_id]
+    )
     respond_to do |format|
       format.html { render json: @fac}
       format.json{ render json: @fac}
@@ -72,13 +68,11 @@ class FuncionalidadAyudanteCursosController < ApplicationController
   end
 
   def contar_funcionalidades
-    curso = params[:curso_id]
-    alumno = params[:alumno_id]     
-    @curso_alumno = CursoAlumno.where(curso_id: curso, alumno_id: alumno).first
-    curso_alumno_id = @curso_alumno.id
-    @fac = FuncionalidadAyudanteCurso.where(curso_alumno_id: curso_alumno_id)
-    cantidad=0
-    cantidad= @fac.count
+    cantidad = FuncionalidadAyudanteCurso.where(
+      curso_id: params[:curso_id],
+      alumno_id: params[:alumno_id]
+    ).count
+
     respond_to do |format|
       format.html { render json: cantidad }
       format.json{ render json: cantidad}
@@ -118,6 +112,6 @@ class FuncionalidadAyudanteCursosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funcionalidad_ayudante_curso_params
-      params.require(:funcionalidad_ayudante_curso).permit(:curso_alumno_id, :funcionalidad_id)
+      params.require(:funcionalidad_ayudante_curso).permit(:curso_id, :funcionalidad_id, :alumno_id)
     end
 end
