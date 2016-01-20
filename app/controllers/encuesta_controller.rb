@@ -72,6 +72,15 @@ class EncuestaController < ApplicationController
       end
   end
 
+  def encuestas_por_tipo
+    @encuestas = Encuestum.where(:tipo_encuesta_id => params[:tipo_id])
+
+    respond_to do |format|
+        format.html { render json: @encuestas }
+        format.json{ render json: @encuestas } 
+    end
+  end
+
   # GET /encuestas_profesor?profesor_id=1
   def encuestas_profesor
     @encuestas = Encuestum.where(profesor_id: nil)
