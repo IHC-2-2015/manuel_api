@@ -68,7 +68,7 @@ c5 = Curso.create(profesor_id: 5, nombre: 'Administración de empresas', semestr
  CursoAlumno.create(curso_id: c1.id, alumno_id: al7.id)
  CursoAlumno.create(curso_id: c1.id, alumno_id: al8.id)
 
-|CursoAlumno.create(curso_id: c2.id, alumno_id: al1.id)
+ CursoAlumno.create(curso_id: c2.id, alumno_id: al1.id)
  CursoAlumno.create(curso_id: c2.id, alumno_id: al2.id)
  CursoAlumno.create(curso_id: c2.id, alumno_id: al3.id)
  CursoAlumno.create(curso_id: c2.id, alumno_id: al4.id)
