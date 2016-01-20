@@ -72,35 +72,6 @@ class EncuestaAlumnosController < ApplicationController
     end
   end
 
-  def buscar_pendientes_alumno
-    @alumno = Alumno.where("correo = ?", params[:correo])
-    @encuestas = []
-    @alumno.each do |alumno|
-      @encuesta_alumno = EncuestaAlumno.where(alumno_id: alumno.id, estado: false)
-      @encuesta_alumno.each do |enc|
-        @encuestas = @encuestas + (Encuestum.where(id: enc.encuesta_id))
-      end
-    end
-    respond_to do |format|
-      format.html { render json: @encuestas}
-      format.json{ render json: @encuestas}
-    end
-  end
-
-  def buscar_encuestas_alumno
-    @alumno = Alumno.where("correo = ?", params[:correo])
-    @encuestas = []
-    @alumno.each do |alumno|
-      @encuesta_alumno = EncuestaAlumno.where(alumno_id: alumno.id, estado: true)
-      @encuesta_alumno.each do |enc|
-        @encuestas = @encuestas + (Encuestum.where(id: enc.encuesta_id))
-      end
-    end
-    respond_to do |format|
-      format.html { render json: @encuestas}
-      format.json{ render json: @encuestas}
-    end
-  end
 
   def grupo_encuesta_pendiente
     @alumno = Alumno.where("correo = ?", params[:correo])

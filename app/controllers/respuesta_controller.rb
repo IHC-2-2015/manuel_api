@@ -38,6 +38,36 @@ class RespuestaController < ApplicationController
     end
   end
 
+  def buscar_pendientes_alumno
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    @encuestas = []
+    @alumno.each do |alumno|
+      @encuesta_alumno = Respuestum.where(encuestador_id: alumno.id, respondida: false)
+      @encuesta_alumno.each do |enc|
+        @encuestas = @encuestas + (Evaluacione.where(id: enc.evaluacion_id))
+      end
+    end
+    respond_to do |format|
+      format.html { render json: @encuestas}
+      format.json{ render json: @encuestas}
+    end
+  end
+
+  def buscar_encuestas_alumno
+    @alumno = Alumno.where("correo = ?", params[:correo])
+    @encuestas = []
+    @alumno.each do |alumno|
+      @encuesta_alumno = Respuestum.where(encuestador_id: alumno.id, respondida: true)
+      @encuesta_alumno.each do |enc|
+        @encuestas = @encuestas + (Evaluacione.where(id: enc.evaluacion_id))
+      end
+    end
+    respond_to do |format|
+      format.html { render json: @encuestas}
+      format.json{ render json: @encuestas}
+    end
+  end
+
   def guardar_respuesta
     @respuestum = Respuestum.new(respuestum_params)
     #@evaluacion = Evaluacione.where("id = ?", params[:evaluacion_id]).first
