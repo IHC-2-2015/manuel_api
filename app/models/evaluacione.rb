@@ -6,4 +6,21 @@ class Evaluacione < ActiveRecord::Base
   validates :nombre, presence: true
 
   before_create -> {self.nombre = self.encuesta.nombre + ' - ' + self.nombre}
+
+  after_create :crear_respuestas
+
+
+  private
+  def crear_respuestas
+  	Evaluacione.transaction do
+  		curso= Curso.where(id: self.curso.id)
+  		curso.each do |c|
+  			grupo = Grupo.where(curso_id: c.id)
+  			grupo.each do |g|
+  				
+  			end
+  		end
+  	end
+  	
+  end
 end

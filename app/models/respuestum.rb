@@ -6,7 +6,7 @@ class Respuestum < ActiveRecord::Base
   belongs_to :grupo
   has_many :respuestum_preguntums
 
-  after_create :setear_grupo_id
+  #after_create :setear_grupo_id
 
   private
     def setear_grupo_id

@@ -130,7 +130,7 @@ class RespuestaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def respuestum_params
-      params.require(:respuestum).permit( :encuestado_id, :encuestador_id, :evaluacion_id)
+      params.require(:respuestum).permit( :encuestado_id, :encuestador_id, :evaluacion_id, :grupo_id, :respondida)
     end
 end
  
