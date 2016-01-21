@@ -42,9 +42,12 @@ class RespuestaController < ApplicationController
     @alumno = Alumno.where("correo = ?", params[:correo])
     @encuestas = []
     @alumno.each do |alumno|
-      @encuesta_alumno = Respuestum.where(encuestador_id: alumno.id, respondida: false)
+      @encuesta_alumno = Respuestum.where(encuestador_id: alumno.id)
       @encuesta_alumno.each do |enc|
-        @encuestas = @encuestas + (Evaluacione.where(id: enc.evaluacion_id))
+        @encuestas = (Evaluacione.where(id: enc.evaluacion_id, contestada: false))
+        @encuestas.each do |en|
+          @encuestas = @encuestas + (Encuestum.where(id: en.encuesta_id))
+        end
       end
     end
     respond_to do |format|
@@ -57,9 +60,12 @@ class RespuestaController < ApplicationController
     @alumno = Alumno.where("correo = ?", params[:correo])
     @encuestas = []
     @alumno.each do |alumno|
-      @encuesta_alumno = Respuestum.where(encuestador_id: alumno.id, respondida: true)
+      @encuesta_alumno = Respuestum.where(encuestador_id: alumno.id)
       @encuesta_alumno.each do |enc|
-        @encuestas = @encuestas + (Evaluacione.where(id: enc.evaluacion_id))
+        @encuestas = (Evaluacione.where(id: enc.evaluacion_id, contestada: true))
+        @encuestas.each do |en|
+          @encuestas = @encuestas + (Encuestum.where(id: en.encuesta_id))
+        end
       end
     end
     respond_to do |format|
