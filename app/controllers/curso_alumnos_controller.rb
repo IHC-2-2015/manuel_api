@@ -118,8 +118,8 @@ class CursoAlumnosController < ApplicationController
     @curso_alumno = CursoAlumno.where(
       curso_id: params[:curso_id],
       alumno_id: params[:alumno_id]
-    )
-    @curso_alumno.ayudante = params[:estado]
+    ).first
+    @curso_alumno.ayudante = params[:ayudante]
     @curso_alumno.save
     respond_to do |format|
       format.html { render json: @curso_alumno}
