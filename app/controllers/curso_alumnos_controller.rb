@@ -119,14 +119,11 @@ class CursoAlumnosController < ApplicationController
       curso_id: params[:curso_id],
       alumno_id: params[:alumno_id]
     )
+    @curso_alumno.ayudante = params[:estado]
+    @curso_alumno.save
     respond_to do |format|
-      if @curso_alumno.update(curso_alumno_params)
-        format.html { redirect_to @curso_alumno, notice: 'Grupo alumno was successfully updated.' }
-        format.json { render :show, status: :ok, location: @curso_alumno }
-      else
-        format.html { render :edit }
-        format.json { render json: @curso_alumno.errors, status: :unprocessable_entity }
-      end
+      format.html { render json: @curso_alumno}
+      format.json{ render json: @curso_alumno}
     end
   end
 
