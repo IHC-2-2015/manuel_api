@@ -17,7 +17,20 @@ class Evaluacione < ActiveRecord::Base
   		curso.each do |c|
   			grupo = Grupo.where(curso_id: c.id)
   			grupo.each do |g|
-  				
+  				grupo_alumno = GrupoAlumno.where(grupo_id: g.id)
+  				grupo_alumno.each do |a1|
+  					grupo_alumno.each do |a2|
+  						if a1.alumno_id != a2.alumno_id
+	  						Respuestum.create(
+	  							encuestado_id: a2.alumno_id, 
+	  							encuestador_id: a1.alumno_id, 
+	  							evaluacion_id: self.id, 
+	  							grupo_id: g.id, 
+	  							respondida: false
+	  						)
+	  					end  						
+  					end
+  				end
   			end
   		end
   	end
